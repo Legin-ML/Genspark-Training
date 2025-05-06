@@ -1,0 +1,29 @@
+Table Customers
+
+customer_id PRIMARY KEY INT
+email VARCHAR
+first_name VARCHAR
+last_name VARCHAR
+address VARCHAR
+phone VARCHAR
+
+
+Table Orders
+
+order_id PRIMARY KEY INT
+customer_id INT
+garment_type VARCHAR
+measurement VARCHAR  // concatenation of required measurements as a string from application
+requirements VARCHAR
+delivery_date DATE 
+picked_up BOOLEAN
+delivered BOOLEAN
+
+
+Table Bills
+
+bill_id PRIMARY KEY INT
+order_id INT
+amount MONEY
+paid BOOLEAN
+// Query remaining data from other tables

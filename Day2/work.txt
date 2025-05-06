@@ -1,0 +1,21 @@
+
+Suppliers 
+    supplier_id, Name, Email, Phone, Address
+
+Products 
+    product_id, Name, Price, Stock
+
+Supplier_Products
+    Id, Supplier_id, Product_id
+
+Customer
+    customer_id, Name, Email, Phone
+
+Purchases
+    purchase_id, customer_id, purchase_Date, Amount, payment_status
+
+Purchase_Items
+    purchase_item_id, purchase_id, product_id, quantity, Price
+
+Bills
+    bill_id, purchase_id, bill_date
