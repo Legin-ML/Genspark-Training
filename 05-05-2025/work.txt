@@ -1,21 +1,28 @@
 
-Suppliers 
-    supplier_id, Name, Email, Phone, Address
+StatusMaster 
+    Id, StatusMessage   
 
-Products 
-    product_id, Name, Price, Stock
+GenreMaster
+    Id, GenreName  // Action, Adventure, Drama etc.
 
-Supplier_Products
-    Id, Supplier_id, Product_id
+MembershipMaster
+    Id, MembershipName, RentalLimit    // Gold, Bronze
+
+FormatMaster
+    Format_Id, Format_Name
+
+Movies
+    Movie_Id, Title, Format_Id, Stock, GenreId, Price
 
 Customer
-    customer_id, Name, Email, Phone
+    Customer_Id, Name, Email, Phone, StatusId, Preferred_Genre_Id, Membership_Id
 
-Purchases
-    purchase_id, customer_id, purchase_Date, Amount, payment_status
+Dependents
+    Id, Name, Email, Phone, Customer_Id
 
-Purchase_Items
-    purchase_item_id, purchase_id, product_id, quantity, Price
+Rentals
+    Id, RentalBills_id, Movie_Id, Count, Rental_date, Expected_Return_Date, Returned_date
 
-Bills
-    bill_id, purchase_id, bill_date
+RentalBills
+    RentalBills_Id, Customer_Id, IsDependent, Amount, PaymentStatus
+
