@@ -1,0 +1,33 @@
+Database planning (Nomalized till 3NF)
+
+A student can enroll in multiple courses
+
+Each course is led by one trainer
+
+Students can receive a certificate after passing
+
+Each certificate has a unique serial number
+
+Trainers may teach multiple courses
+
+StatusMaster
+    status_id, status_message
+
+CourseStatusMaster
+    course_status_id, status_message
+
+Students
+    Student_id(PK), first_name, last_name, email, status_id
+
+Trainers
+    Trainer_id(PK), first_name, last_name, email, status_id
+
+courses
+    Course_id(PK), Trainer_id(FK), course_name, duration, price
+
+Enrolled_courses                                                    
+    enroll_id(PK),Course_id(FK), Student_id(FK), course_status_id
+
+Certificates
+    Certificate_serial(PK), enroll_id(FK), date_of_issue, date_of_expiry
+
