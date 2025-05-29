@@ -1,0 +1,6 @@
+@LegitBank_HostAddress = http://localhost:5252
+
+GET {{LegitBank_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
