@@ -8,6 +8,8 @@ namespace FirstAPI.Models
         public string Email { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;
         public ICollection<Appointmnet>? Appointmnets { get; set; }
+        
+        public string UserId { get; set; }
         public User? User { get; set; }
     }
    

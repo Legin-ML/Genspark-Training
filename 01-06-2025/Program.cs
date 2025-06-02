@@ -67,6 +67,7 @@ builder.Services.AddTransient<IRepository<string, User>, UserRepository>();
 
 #region Services
 builder.Services.AddTransient<IDoctorService, DoctorService>();
+builder.Services.AddTransient<IPatientService, PatientService>();
 builder.Services.AddTransient<IOtherContextFunctionities, OtherFuncinalitiesImplementation>();
 builder.Services.AddTransient<IEncryptionService, EncryptionService>();
 builder.Services.AddTransient<ITokenService, TokenService>();
@@ -90,6 +91,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 #region  Misc
 builder.Services.AddAutoMapper(typeof(User));
+builder.Services.AddAutoMapper(typeof(PatientMapping)); 
 #endregion
 
 
