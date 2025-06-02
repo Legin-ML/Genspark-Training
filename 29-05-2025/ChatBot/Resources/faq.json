@@ -1,0 +1,198 @@
+[
+  {
+    "question": "What types of databases do you host?",
+    "answer": "We host MySQL, PostgreSQL, SQL Server, MongoDB, and Oracle databases."
+  },
+  {
+    "question": "Do you offer managed database services?",
+    "answer": "Yes, we provide fully managed database hosting services including backups, updates, and monitoring."
+  },
+  {
+    "question": "How do I migrate my existing database to your platform?",
+    "answer": "You can use our migration tool or request assistance from our support team."
+  },
+  {
+    "question": "Is there a free trial available?",
+    "answer": "Yes, we offer a 14-day free trial for all our hosting plans."
+  },
+  {
+    "question": "Do you support high availability databases?",
+    "answer": "Yes, we support clustering and replication for high availability."
+  },
+  {
+    "question": "Where are your servers located?",
+    "answer": "Our servers are located in data centers across North America, Europe, and Asia."
+  },
+  {
+    "question": "Can I access my database remotely?",
+    "answer": "Yes, remote access is supported and configurable through your dashboard."
+  },
+  {
+    "question": "How often do you back up my data?",
+    "answer": "We perform automated daily backups and allow on-demand backups."
+  },
+  {
+    "question": "Can I schedule backups?",
+    "answer": "Yes, backup schedules can be customized from your control panel."
+  },
+  {
+    "question": "Is my data encrypted?",
+    "answer": "Yes, we use AES-256 encryption for data at rest and TLS for data in transit."
+  },
+  {
+    "question": "Do you offer SLAs?",
+    "answer": "We offer a 99.9% uptime SLA for all hosting plans."
+  },
+  {
+    "question": "How do I scale my database?",
+    "answer": "You can scale up your resources at any time through your dashboard."
+  },
+  {
+    "question": "Can I upgrade or downgrade my plan?",
+    "answer": "Yes, plans can be changed at any time without downtime."
+  },
+  {
+    "question": "What monitoring tools do you provide?",
+    "answer": "We provide our in house real-time performance monitoring, logs, and alerting tools."
+  },
+  {
+    "question": "Is technical support available 24/7?",
+    "answer": "Yes, our support team is available 24/7 via chat, email, and phone."
+  },
+  {
+    "question": "Do you support stored procedures and triggers?",
+    "answer": "Yes, we support all standard database features including procedures and triggers."
+  },
+  {
+    "question": "Can I connect to my database using third-party tools?",
+    "answer": "Yes, you can connect using tools like DBeaver, pgAdmin, or SQL Server Management Studio."
+  },
+  {
+    "question": "Do you support read replicas?",
+    "answer": "Yes, read replicas are available for performance optimization."
+  },
+  {
+    "question": "Are there limits on the size of my database?",
+    "answer": "Limits depend on your plan; some plans support databases up to 5 TB."
+  },
+  {
+    "question": "Do you support GDPR compliance?",
+    "answer": "Yes, our infrastructure is GDPR compliant."
+  },
+  {
+    "question": "Can I host multiple databases under one account?",
+    "answer": "Yes, you can host multiple databases depending on your plan."
+  },
+  {
+    "question": "Do you support custom database users and roles?",
+    "answer": "Yes, you can create and manage users with custom roles and privileges."
+  },
+  {
+    "question": "Can I set up automated scaling?",
+    "answer": "Yes, automated vertical scaling is available on certain plans."
+  },
+  {
+    "question": "What programming languages are supported?",
+    "answer": "Our databases work with all major languages including Python, Java, Node.js, .NET, and PHP."
+  },
+  {
+    "question": "Is there an API for managing databases?",
+    "answer": "Yes, we provide a RESTful API for database management tasks."
+  },
+  {
+    "question": "How do I restore a backup?",
+    "answer": "Backups can be restored from your dashboard or via support request."
+  },
+  {
+    "question": "Do you offer database analytics?",
+    "answer": "Yes, we offer basic analytics and performance metrics through our portal."
+  },
+  {
+    "question": "Can I limit IP access to my database?",
+    "answer": "Yes, you can configure IP whitelisting for additional security."
+  },
+  {
+    "question": "What happens if I exceed my plan limits?",
+    "answer": "You'll receive alerts and have the option to upgrade or pay overage fees."
+  },
+  {
+    "question": "Do you offer on-premise database support?",
+    "answer": "We primarily focus on cloud-hosted databases but can advise on on-premise setups."
+  },
+  {
+    "question": "How secure is your platform?",
+    "answer": "Our platform uses multi-layered security including firewalls, IDS, and role-based access."
+  },
+  {
+    "question": "Can I automate maintenance tasks?",
+    "answer": "Yes, maintenance scripts and cron jobs can be configured."
+  },
+  {
+    "question": "Do you support legacy database versions?",
+    "answer": "We support both current and select legacy versions of popular databases."
+  },
+  {
+    "question": "How do I monitor database performance?",
+    "answer": "Performance dashboards and query insights are available via our portal."
+  },
+  {
+    "question": "What are your billing options?",
+    "answer": "We offer monthly and annual billing with discounts for long-term plans."
+  },
+  {
+    "question": "Can I create a test environment?",
+    "answer": "Yes, you can spin up test databases as part of your plan."
+  },
+  {
+    "question": "Do you offer database sharding?",
+    "answer": "Sharding is available for large-scale applications upon request."
+  },
+  {
+    "question": "How do I contact support?",
+    "answer": "You can reach us via live chat, email, or our support ticket system."
+  },
+  {
+    "question": "What authentication methods do you support?",
+    "answer": "We support password-based, SSL/TLS, and token-based authentication."
+  },
+  {
+    "question": "How do you handle security updates?",
+    "answer": "Security patches are applied automatically during off-peak hours."
+  },
+  {
+    "question": "Do you have a mobile app?",
+    "answer": "Yes, our mobile app allows basic database monitoring and alerts."
+  },
+  {
+    "question": "Can I export my database?",
+    "answer": "Yes, databases can be exported in SQL or CSV formats."
+  },
+  {
+    "question": "Do you offer service credits for downtime?",
+    "answer": "Yes, we provide SLA-backed credits for any unplanned downtime."
+  },
+  {
+    "question": "How fast is provisioning?",
+    "answer": "Databases are typically provisioned within 2�5 minutes."
+  },
+  {
+    "question": "Can I use environment variables?",
+    "answer": "Yes, we support using environment variables for config management."
+  },
+  {
+    "question": "Do you support scheduled tasks?",
+    "answer": "Yes, you can schedule recurring tasks like backups or queries."
+  },
+  {
+    "question": "Is multi-region replication supported?",
+    "answer": "Yes, premium plans include multi-region replication options."
+  },
+  {
+    "question": "Do you provide database tuning?",
+    "answer": "Our team offers performance tuning assistance as part of enterprise plans."
+  },
+  {
+    "question": "Is containerized deployment supported?",
+    "answer": "Yes, we support Docker-based containerized deployments."
+  }
+]
