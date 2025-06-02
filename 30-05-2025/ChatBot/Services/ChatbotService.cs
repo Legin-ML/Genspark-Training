@@ -34,10 +34,8 @@ namespace ChatBot.Services
                 .Select(f => Tokenize(f.Question))
                 .ToList();
 
-            // Build consistent vocabulary
             _vocabulary = docs.SelectMany(d => d).Distinct().ToList();
 
-            // Compute IDF once for all docs
             _idfVector = InverseDocumentFrequency(docs);
 
             _tfidfVectors = new Dictionary<string, double[]>();
@@ -59,7 +57,7 @@ namespace ChatBot.Services
             var tf = TermFrequency(inputTokens);
             var inputVector = tf.Zip(_idfVector, (a, b) => a * b).ToArray();
 
-            double bestScore = 0;
+            double bestScore = 0.2;
             string bestQuestion = null;
 
             foreach (var kvp in _tfidfVectors)
