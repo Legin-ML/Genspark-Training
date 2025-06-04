@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FirstAPI\FirstAPI.csproj" />
+    <ProjectReference Include="..\OAuth\Policy\FirstAPI.csproj" />
   </ItemGroup>
 
 </Project>
