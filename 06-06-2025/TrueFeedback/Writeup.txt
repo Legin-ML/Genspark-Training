@@ -1,0 +1,22 @@
+4.1 Authentication
+Method	Endpoint	            Description
+POST	/api/v1/auth/login	    Authenticate user and return token
+POST	/api/v1/auth/refresh	Refresh expired access token
+POST	/api/v1/auth/logout	    Invalidate current token
+GET	    /api/v1/auth/me	        Get current user details
+
+4.2 User Management
+Method	Endpoint	        Description
+GET	   /api/v1/users	    List users (with pagination) [possible query to find emails?] [Lists in ascending order of emails]
+GET	/api/v1/users/{id}	    Get user by ID
+POST	/api/v1/users	    Create new user
+PUT	/api/v1/users/{id}	    Update user details
+DELETE	/api/v1/users/{id}	Delete user
+
+4.3 Feedback Management
+Method	Endpoint	Description
+GET	/api/v1/feedbacks   List user feedbacks [With pagination and sorting]	
+GET	/api/v1/feedbacks/{id}	Get specific feedback
+POST	/api/v1/feedbacks	Create new feedback
+PUT	/api/v1/feedbacks/{id}	Update feedback
+DELETE	/api/v1/feedbacks/{id}	Delete feedback

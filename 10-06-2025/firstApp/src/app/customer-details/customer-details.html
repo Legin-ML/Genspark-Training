@@ -1,0 +1,9 @@
+<h2>Customer Details</h2>
+
+<p>Name: {{name}}<br>Email: {{email}}</p>
+<div class="likes-container">
+  <i [class]="likes_class" (click)="like()"></i>
+  <span>{{ likes }}</span>
+  <i [class]="dislikes_class" (click)="dislike()"></i>
+  <span>{{ dislikes }}</span>
+</div>

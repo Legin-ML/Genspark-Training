@@ -1,0 +1,24 @@
+<h1>Products</h1>
+<div>
+    <i class="bi bi-cart"></i><p class="likes">{{likes}}</p>
+</div>
+<table>
+    <tr>
+        <td>{{products[0].name}}</td>
+        <td>{{products[0].price}}</td>
+        <td><img src={{products[1].image}}></td>
+        <td><button (click)="cartButtonClicked()">Add to Cart</button></td>
+    </tr>
+    <tr>
+        <td>{{products[1].name}}</td>
+        <td>{{products[1].price}}</td>
+        <td><img src={{products[1].image}}></td>
+        <td><button (click)="cartButtonClicked()">Add to Cart</button></td>
+    </tr>
+    <tr>
+        <td>{{products[2].name}}</td>
+        <td>{{products[2].price}}</td>
+        <td><img src={{products[1].image}}></td>
+        <td><button (click)="cartButtonClicked()">Add to Cart</button></td>
+    </tr>
+</table>
