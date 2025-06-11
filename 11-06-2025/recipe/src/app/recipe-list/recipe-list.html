@@ -1,0 +1,10 @@
+ @if (recipes() && recipes().length > 0) {
+  <div style="display: flex; flex-wrap: wrap;">
+    @for (item of recipes(); track item.id) {
+      <app-recipe [recipe]="item"></app-recipe>
+    }
+  </div>
+}
+@else {
+  <p><i>No recipes available.</i></p>
+}
