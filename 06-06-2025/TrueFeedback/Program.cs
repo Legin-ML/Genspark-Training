@@ -2,7 +2,9 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 using TrueFeedback.Contexts;
+using TrueFeedback.Hubs;
 using TrueFeedback.Interfaces;
 using TrueFeedback.Models;
 using TrueFeedback.Repositories;
@@ -15,6 +17,12 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        
+        Log.Logger = new LoggerConfiguration()
+            .ReadFrom.Configuration(builder.Configuration)
+            .CreateLogger();
+
+        builder.Host.UseSerilog();
 
         // Add services to the container.
         builder.Services.AddAuthorization();
@@ -75,10 +83,22 @@ public class Program
                     IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
                 };
             });
-
+        builder.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(policy =>
+            {
+                policy
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials()
+                    .WithOrigins("http://127.0.0.1:5500"); 
+            });
+        });
         builder.Services.AddScoped<IRepository<Guid, User>, UserRepository>();
         builder.Services.AddScoped<IRepository<Guid, Role>, RoleRepository>();
         builder.Services.AddScoped<IRepository<Guid, Feedback>, FeedbackRepository>();
+        
+        builder.Services.AddSignalR();
 
         builder.Services.AddScoped<UserService>();
         builder.Services.AddScoped<RoleService>();
@@ -96,11 +116,15 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+        
 
         app.UseHttpsRedirection();
+        app.UseCors();
         app.MapControllers();
         app.UseAuthentication(); 
         app.UseAuthorization();
+        
+        app.MapHub<TrueFeedbackHub>("/frontend/listener");
 
 
         app.Run();

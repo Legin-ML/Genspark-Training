@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Live Updates</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        .feedback, .reply {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 5px solid #007bff;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .reply {
+            border-color: #28a745;
+            margin-left: 20px;
+            background-color: #e9f9ec;
+        }
+    </style>
+</head>
+<body>
+<h1>📢 Live Feedback Stream</h1>
+<div id="feedbackContainer"></div>
+
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("https://127.0.0.1:7226/frontend/listener")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+
+    const feedbackContainer = document.getElementById("feedbackContainer");
+
+    connection.on("FeedbackPosted", data => {
+        const feedbackDiv = document.createElement("div");
+        feedbackDiv.className = "feedback";
+        feedbackDiv.innerHTML = `
+                <strong>🗣 New Feedback</strong><br>
+                <strong>User:</strong> ${data.userId}<br>
+                <strong>Message:</strong> ${data.message}<br>
+                <strong>Rating:</strong> ${data.rating}<br>
+                <small><em>${new Date(data.created).toLocaleString()}</em></small>
+            `;
+        feedbackContainer.prepend(feedbackDiv);
+    });
+
+    connection.on("FeedbackReplied", data => {
+        const replyDiv = document.createElement("div");
+        replyDiv.className = "reply";
+        replyDiv.innerHTML = `
+                <strong>🛠 Admin Reply</strong><br>
+                <strong>Feedback ID:</strong> ${data.id}<br>
+                <strong>Reply:</strong> ${data.reply}<br>
+                <small><em>${new Date(data.updated).toLocaleString()}</em></small>
+            `;
+        feedbackContainer.prepend(replyDiv);
+    });
+
+    connection.start()
+        .then(() => console.log("Connected to SignalR"))
+        .catch(err => console.error("Connection failed:", err));
+</script>
+</body>
+</html>
