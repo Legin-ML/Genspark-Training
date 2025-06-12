@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using Microsoft.AspNetCore.SignalR;
+using TrueFeedback.Hubs;
 using TrueFeedback.Models;
-using TrueFeedback.Models.DTOs;
 using TrueFeedback.Services;
 
 namespace TrueFeedback.Controllers;
@@ -12,10 +13,12 @@ namespace TrueFeedback.Controllers;
 public class FeedbackController : ControllerBase
 {
     private readonly FeedbackService _feedbackService;
+    private readonly IHubContext<TrueFeedbackHub> _hubContext;
 
-    public FeedbackController(FeedbackService feedbackService)
+    public FeedbackController(FeedbackService feedbackService,  IHubContext<TrueFeedbackHub> hubContext)
     {
         _feedbackService = feedbackService;
+        _hubContext = hubContext;
     }
 
     [HttpGet]
@@ -47,6 +50,7 @@ public class FeedbackController : ControllerBase
     {
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         var feedback = await _feedbackService.CreateAsync(dto, Guid.Parse(userId));
+        await _hubContext.Clients.All.SendAsync("FeedbackPosted", feedback);
         return CreatedAtAction(nameof(GetById), new { id = feedback.Id }, feedback);
     }
 
@@ -77,6 +81,7 @@ public class FeedbackController : ControllerBase
         try
         {
             var updated = await _feedbackService.ReplyAsync(id, dto);
+            await _hubContext.Clients.All.SendAsync("FeedbackReplied", updated);
             return Ok(updated);
         }
         catch (Exception ex)
