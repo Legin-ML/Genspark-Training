@@ -1,7 +1,9 @@
+using TrueFeedback.Interfaces;
+
 namespace TrueFeedback.Models;
 
-public class Role
+public class Role : IEntity
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string RoleName { get; set; }
 }

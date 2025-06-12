@@ -1,8 +1,9 @@
 using TrueFeedback.Enums;
+using TrueFeedback.Interfaces;
 
 namespace TrueFeedback.Models;
 
-public class AuditLog
+public class AuditLog : IEntity
 {
     public Guid Id { get; set; }
     public OperationType  OperationType { get; set; }
