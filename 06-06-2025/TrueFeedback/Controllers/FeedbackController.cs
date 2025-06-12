@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using TrueFeedback.Models;
+using TrueFeedback.Models.DTOs;
 using TrueFeedback.Services;
 
 namespace TrueFeedback.Controllers;
@@ -16,6 +19,7 @@ public class FeedbackController : ControllerBase
     }
 
     [HttpGet]
+    [AllowAnonymous]
     public async Task<ActionResult<IEnumerable<Feedback>>> GetAll([FromQuery] QueryParameters query)
     {
         var feedbacks = await _feedbackService.GetAllAsync(query);
@@ -23,6 +27,7 @@ public class FeedbackController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [AllowAnonymous]
     public async Task<ActionResult<Feedback>> GetById(Guid id)
     {
         try
@@ -37,27 +42,51 @@ public class FeedbackController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<Feedback>> Create([FromBody] Feedback feedback)
+    [Authorize(Roles = "User,Admin")]
+    public async Task<ActionResult<Feedback>> Create([FromBody] FeedbackCreateReqDto dto)
     {
-        var created = await _feedbackService.CreateAsync(feedback);
-        return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var feedback = await _feedbackService.CreateAsync(dto, Guid.Parse(userId));
+        return CreatedAtAction(nameof(GetById), new { id = feedback.Id }, feedback);
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<Feedback>> Update(Guid id, [FromBody] Feedback feedback)
+    [Authorize(Roles = "User,Admin")]
+    public async Task<ActionResult<Feedback>> Update(Guid id, [FromBody] FeedbackUpdateReqDto dto)
+    {
+        var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        try
+        {
+            var updated = await _feedbackService.UpdateAsync(id, dto, userId, User.IsInRole("Admin"));
+            return Ok(updated);
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            return Forbid(ex.Message);
+        }
+        catch (Exception ex)
+        {
+            return NotFound(ex.Message);
+        }
+    }
+
+    [HttpPut("{id}/reply")]
+    [Authorize(Roles = "Admin")]
+    public async Task<ActionResult<Feedback>> Reply(Guid id, [FromBody] FeedbackReplyReqDto dto)
     {
         try
         {
-            var updated = await _feedbackService.UpdateAsync(id, feedback);
+            var updated = await _feedbackService.ReplyAsync(id, dto);
             return Ok(updated);
         }
-        catch (KeyNotFoundException ex)
+        catch (Exception ex)
         {
             return NotFound(ex.Message);
         }
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Delete(Guid id)
     {
         try
@@ -65,7 +94,7 @@ public class FeedbackController : ControllerBase
             await _feedbackService.DeleteAsync(id);
             return NoContent();
         }
-        catch (KeyNotFoundException ex)
+        catch (Exception ex)
         {
             return NotFound(ex.Message);
         }

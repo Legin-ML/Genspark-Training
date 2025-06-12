@@ -13,16 +13,19 @@ namespace TrueFeedback.Services;
 public class AuthService
 {
     private readonly IRepository<Guid, User> _userRepository;
+    private readonly IRepository<Guid, Role> _roleRepository;
     private readonly ILogger<AuthenticationService> _logger;
     private readonly IConfiguration _config;
 
     public AuthService(
         IRepository<Guid, User> userRepository,
         ILogger<AuthenticationService> logger,
+        IRepository<Guid, Role> roleRepository,
         IConfiguration configuration)
     {
         _userRepository = userRepository;
         _logger = logger;
+        _roleRepository = roleRepository;
         _config = configuration;
     }
 
@@ -105,6 +108,12 @@ public class AuthService
 
         if (user == null)
             throw new KeyNotFoundException($"No user found with email: {userDtoEmail}");
+        
+        if (user.Role == null)
+        {
+            var roles = await _roleRepository.GetAllAsync();
+            user.Role = roles.FirstOrDefault(r => r.Id == user.RoleId);
+        }
 
         return user;
     }

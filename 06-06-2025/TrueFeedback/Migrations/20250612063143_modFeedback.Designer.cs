@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TrueFeedback.Contexts;
@@ -11,9 +12,11 @@ using TrueFeedback.Contexts;
 namespace TrueFeedback.Migrations
 {
     [DbContext(typeof(TrueFeedbackContext))]
-    partial class TrueFeedbackContextModelSnapshot : ModelSnapshot
+    [Migration("20250612063143_modFeedback")]
+    partial class modFeedback
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

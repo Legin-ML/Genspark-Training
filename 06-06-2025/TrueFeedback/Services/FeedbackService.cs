@@ -51,27 +51,49 @@ public class FeedbackService
         return feedback;
     }
 
-    public async Task<Feedback> CreateAsync(Feedback feedback)
+    public async Task<Feedback> CreateAsync(FeedbackCreateReqDto dto, Guid userId)
     {
-        feedback.Created = DateTime.UtcNow;
-        feedback.Updated = DateTime.UtcNow;
-        feedback.IsDeleted = false;
+        var feedback = new Feedback
+        {
+            Id = Guid.NewGuid(),
+            UserId = userId,
+            Message = dto.Message,
+            Rating = dto.Rating,
+            Created = DateTime.UtcNow,
+            Updated = DateTime.UtcNow,
+            IsDeleted = false
+        };
         return await _feedbackRepository.AddAsync(feedback);
     }
 
-    public async Task<Feedback> UpdateAsync(Guid id, Feedback feedback)
+    public async Task<Feedback> UpdateAsync(Guid id, FeedbackUpdateReqDto dto, Guid userId, bool isAdmin)
     {
-        var existing = await _feedbackRepository.GetAsync(id);
-        if (existing.IsDeleted)
-        {
-            throw new KeyNotFoundException($"Cannot update deleted feedback with id {id}");
-        }
+        var feedback = await _feedbackRepository.GetAsync(id);
+        if (feedback.IsDeleted)
+            throw new KeyNotFoundException($"Feedback {id} not found");
 
-        feedback.Id = id;
-        feedback.Created = existing.Created;
+        if (!isAdmin && feedback.UserId != userId)
+            throw new UnauthorizedAccessException("You are not allowed to edit this feedback");
+
+        feedback.Message = dto.Message;
+        feedback.Rating = dto.Rating;
         feedback.Updated = DateTime.UtcNow;
+
         return await _feedbackRepository.UpdateAsync(id, feedback);
     }
+
+    public async Task<Feedback> ReplyAsync(Guid id, FeedbackReplyReqDto dto)
+    {
+        var feedback = await _feedbackRepository.GetAsync(id);
+        if (feedback.IsDeleted)
+            throw new KeyNotFoundException($"Feedback {id} not found");
+
+        feedback.Reply = dto.Reply;
+        feedback.Updated = DateTime.UtcNow;
+
+        return await _feedbackRepository.UpdateAsync(id, feedback);
+    }
+
 
     public async Task<bool> DeleteAsync(Guid id)
     {
