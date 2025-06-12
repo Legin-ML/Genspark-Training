@@ -1,4 +1,5 @@
 using System.Text;
+using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -27,6 +28,25 @@ public class Program
         // Add services to the container.
         builder.Services.AddAuthorization();
         builder.Services.AddControllers();
+        
+        builder.Services.AddInMemoryRateLimiting();
+        builder.Services.AddMemoryCache();
+
+        builder.Services.Configure<IpRateLimitOptions>(options =>
+        {
+            options.GeneralRules = new List<RateLimitRule>
+            {
+                new RateLimitRule
+                {
+                    Endpoint = "*",
+                    Period = "10s",
+                    Limit = 100
+                }
+            };
+        });
+
+        builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -120,6 +140,7 @@ public class Program
 
         app.UseHttpsRedirection();
         app.UseCors();
+        app.UseIpRateLimiting();
         app.MapControllers();
         app.UseAuthentication(); 
         app.UseAuthorization();
