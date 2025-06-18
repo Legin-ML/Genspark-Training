@@ -1,0 +1,213 @@
+2025-06-18 10:29:35.473 +05:30 [INF] Application is shutting down...
+2025-06-18 15:24:18.183 +05:30 [INF] User profile is available. Using '/Users/legin/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-18 15:24:18.807 +05:30 [INF] Now listening on: https://localhost:7226
+2025-06-18 15:24:18.809 +05:30 [INF] Now listening on: http://localhost:5284
+2025-06-18 15:24:18.816 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-18 15:24:18.817 +05:30 [INF] Hosting environment: Development
+2025-06-18 15:24:18.818 +05:30 [INF] Content root path: /Users/legin/Documents/Genspark-Training/06-06-2025/TrueFeedback
+2025-06-18 15:24:19.452 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - null null
+2025-06-18 15:24:19.954 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - 200 null text/html;charset=utf-8 509.9482ms
+2025-06-18 15:24:20.222 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - null null
+2025-06-18 15:24:20.441 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 218.7901ms
+2025-06-18 15:32:34.986 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/users - application/json 98
+2025-06-18 15:32:35.010 +05:30 [INF] CORS policy execution failed.
+2025-06-18 15:32:35.011 +05:30 [INF] Request origin https://localhost:7226 does not have permission to access the resource.
+2025-06-18 15:32:35.272 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '16/06/2025 10:21:01 AM', Current time (UTC): '18/06/2025 10:02:35 AM'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-06-18 15:32:35.366 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '16/06/2025 10:21:01 AM', Current time (UTC): '18/06/2025 10:02:35 AM'.
+2025-06-18 15:32:35.401 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.UserController.CreateUser (TrueFeedback)'
+2025-06-18 15:32:35.440 +05:30 [INF] Route matched with {action = "CreateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateUser(CreateUserDto) on controller TrueFeedback.Controllers.UserController (TrueFeedback).
+2025-06-18 15:32:36.981 +05:30 [INF] Executing action method TrueFeedback.Controllers.UserController.CreateUser (TrueFeedback) - Validation state: "Valid"
+2025-06-18 15:32:36.990 +05:30 [INF] All Items fetched successfully
+2025-06-18 15:32:37.987 +05:30 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."RoleName"
+FROM "Roles" AS r
+2025-06-18 15:32:39.072 +05:30 [INF] Executed DbCommand (87ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?', @p3='?' (DbType = Boolean), @p4='?', @p5='?', @p6='?' (DbType = DateTime), @p7='?' (DbType = Guid), @p8='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Id", "Created", "Email", "IsDeleted", "Password", "RefreshToken", "RefreshTokenExpiryTime", "RoleId", "UserName")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-06-18 15:32:39.099 +05:30 [INF] Item with id 65214c02-8274-4be4-994d-edb0078d6d1c added successfully
+2025-06-18 15:32:39.111 +05:30 [INF] Executed action method TrueFeedback.Controllers.UserController.CreateUser (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 2123.3397ms.
+2025-06-18 15:32:39.128 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'TrueFeedback.Models.User'.
+2025-06-18 15:32:39.274 +05:30 [INF] Executed action TrueFeedback.Controllers.UserController.CreateUser (TrueFeedback) in 3819.7497ms
+2025-06-18 15:32:39.275 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.UserController.CreateUser (TrueFeedback)'
+2025-06-18 15:32:39.305 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/users - 201 null application/json; charset=utf-8 4319.2511ms
+2025-06-18 15:33:01.005 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/auth/login - application/json 53
+2025-06-18 15:33:01.009 +05:30 [INF] CORS policy execution failed.
+2025-06-18 15:33:01.009 +05:30 [INF] Request origin https://localhost:7226 does not have permission to access the resource.
+2025-06-18 15:33:01.016 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '16/06/2025 10:21:01 AM', Current time (UTC): '18/06/2025 10:03:01 AM'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-06-18 15:33:01.035 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '16/06/2025 10:21:01 AM', Current time (UTC): '18/06/2025 10:03:01 AM'.
+2025-06-18 15:33:01.038 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.AuthController.Login (TrueFeedback)'
+2025-06-18 15:33:01.051 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TrueFeedback.Models.DTOs.UserLoginReqDto) on controller TrueFeedback.Controllers.AuthController (TrueFeedback).
+2025-06-18 15:33:01.148 +05:30 [INF] Executing action method TrueFeedback.Controllers.AuthController.Login (TrueFeedback) - Validation state: "Valid"
+2025-06-18 15:33:01.154 +05:30 [INF] All Items fetched successfully
+2025-06-18 15:33:01.176 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Created", u."Email", u."IsDeleted", u."Password", u."RefreshToken", u."RefreshTokenExpiryTime", u."RoleId", u."UserName"
+FROM "Users" AS u
+2025-06-18 15:33:01.190 +05:30 [INF] All Items fetched successfully
+2025-06-18 15:33:01.192 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."RoleName"
+FROM "Roles" AS r
+2025-06-18 15:33:01.520 +05:30 [INF] Item with id 65214c02-8274-4be4-994d-edb0078d6d1c fetched successfully
+2025-06-18 15:33:01.609 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@p2='?' (DbType = Guid), @p0='?', @p1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "RefreshToken" = @p0, "RefreshTokenExpiryTime" = @p1
+WHERE "Id" = @p2;
+2025-06-18 15:33:01.610 +05:30 [INF] Item with id 65214c02-8274-4be4-994d-edb0078d6d1c updated successfully
+2025-06-18 15:33:01.610 +05:30 [INF] User malar@test.com successfully authenticated
+2025-06-18 15:33:01.655 +05:30 [INF] Executed action method TrueFeedback.Controllers.AuthController.Login (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 506.7476ms.
+2025-06-18 15:33:01.656 +05:30 [INF] Executing OkObjectResult, writing value of type 'AuthRespDto'.
+2025-06-18 15:33:01.659 +05:30 [INF] Executed action TrueFeedback.Controllers.AuthController.Login (TrueFeedback) in 607.7462ms
+2025-06-18 15:33:01.681 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.AuthController.Login (TrueFeedback)'
+2025-06-18 15:33:01.681 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/auth/login - 200 null application/json; charset=utf-8 676.4426ms
+2025-06-18 15:33:22.824 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/api/v1/feedbacks - null null
+2025-06-18 15:33:22.854 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-06-18 15:33:22.863 +05:30 [INF] Route matched with {action = "GetAll", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[TrueFeedback.Models.Feedback]]] GetAll(QueryParameters) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-06-18 15:33:22.894 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) - Validation state: "Valid"
+2025-06-18 15:33:22.900 +05:30 [INF] All Items fetched successfully
+2025-06-18 15:33:22.914 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Created", f."IsDeleted", f."Message", f."Rating", f."Reply", f."ReplyToId", f."Updated", f."UserId"
+FROM "Feedbacks" AS f
+2025-06-18 15:33:22.955 +05:30 [INF] Executed action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 60.9973ms.
+2025-06-18 15:33:22.956 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TrueFeedback.Models.Feedback, TrueFeedback, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-18 15:33:22.997 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) in 133.5158ms
+2025-06-18 15:33:22.997 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-06-18 15:33:22.997 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/api/v1/feedbacks - 200 null application/json; charset=utf-8 172.5939ms
+2025-06-18 15:35:26.015 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/feedbacks - application/json 38
+2025-06-18 15:35:26.017 +05:30 [INF] CORS policy execution failed.
+2025-06-18 15:35:26.017 +05:30 [INF] Request origin https://localhost:7226 does not have permission to access the resource.
+2025-06-18 15:35:26.023 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.Create (TrueFeedback)'
+2025-06-18 15:35:26.045 +05:30 [INF] Route matched with {action = "Create", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TrueFeedback.Models.Feedback]] Create(FeedbackCreateReqDto) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-06-18 15:35:26.058 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.Create (TrueFeedback) - Validation state: "Valid"
+2025-06-18 15:35:26.111 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Boolean), @p3='?', @p4='?' (DbType = Single), @p5='?', @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Feedbacks" ("Id", "Created", "IsDeleted", "Message", "Rating", "Reply", "ReplyToId", "Updated", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-06-18 15:35:26.113 +05:30 [INF] Item with id fd29f425-8177-42fc-b6e9-6a72dc3fa72b added successfully
+2025-06-18 15:35:26.113 +05:30 [INF] Executed action method TrueFeedback.Controllers.FeedbackController.Create (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 55.1252ms.
+2025-06-18 15:35:26.131 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'TrueFeedback.Models.Feedback'.
+2025-06-18 15:35:26.133 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.Create (TrueFeedback) in 87.6691ms
+2025-06-18 15:35:26.133 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.Create (TrueFeedback)'
+2025-06-18 15:35:26.133 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/feedbacks - 201 null application/json; charset=utf-8 117.9926ms
+2025-06-18 15:36:23.820 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7226/frontend/listener/negotiate?negotiateVersion=1 - null 0
+2025-06-18 15:36:23.821 +05:30 [INF] CORS policy execution successful.
+2025-06-18 15:36:23.822 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7226/frontend/listener/negotiate?negotiateVersion=1 - 204 null null 2.2333ms
+2025-06-18 15:36:23.826 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7226/frontend/listener/negotiate?negotiateVersion=1 - text/plain;charset=UTF-8 0
+2025-06-18 15:36:23.826 +05:30 [INF] CORS policy execution successful.
+2025-06-18 15:36:23.827 +05:30 [INF] Executing endpoint '/frontend/listener/negotiate'
+2025-06-18 15:36:23.842 +05:30 [INF] Executed endpoint '/frontend/listener/negotiate'
+2025-06-18 15:36:23.843 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7226/frontend/listener/negotiate?negotiateVersion=1 - 200 316 application/json 17.0801ms
+2025-06-18 15:36:23.880 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7226/frontend/listener?id=pPav5G-M1F508TXltlNLvg - null null
+2025-06-18 15:36:23.881 +05:30 [INF] CORS policy execution successful.
+2025-06-18 15:36:23.882 +05:30 [INF] Executing endpoint '/frontend/listener'
+2025-06-18 15:36:29.664 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/feedbacks - application/json 38
+2025-06-18 15:36:29.665 +05:30 [INF] CORS policy execution failed.
+2025-06-18 15:36:29.665 +05:30 [INF] Request origin https://localhost:7226 does not have permission to access the resource.
+2025-06-18 15:36:29.668 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.Create (TrueFeedback)'
+2025-06-18 15:36:29.677 +05:30 [INF] Route matched with {action = "Create", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TrueFeedback.Models.Feedback]] Create(FeedbackCreateReqDto) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-06-18 15:36:29.701 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.Create (TrueFeedback) - Validation state: "Valid"
+2025-06-18 15:36:29.714 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = Boolean), @p3='?', @p4='?' (DbType = Single), @p5='?', @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime), @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Feedbacks" ("Id", "Created", "IsDeleted", "Message", "Rating", "Reply", "ReplyToId", "Updated", "UserId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-06-18 15:36:29.726 +05:30 [INF] Item with id 98275b28-40e4-4a46-b590-4eaab45c165c added successfully
+2025-06-18 15:36:29.735 +05:30 [INF] Executed action method TrueFeedback.Controllers.FeedbackController.Create (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 33.8023ms.
+2025-06-18 15:36:29.736 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'TrueFeedback.Models.Feedback'.
+2025-06-18 15:36:29.736 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.Create (TrueFeedback) in 59.1151ms
+2025-06-18 15:36:29.737 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.Create (TrueFeedback)'
+2025-06-18 15:36:29.737 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/feedbacks - 201 null application/json; charset=utf-8 73.0116ms
+2025-06-18 15:37:53.274 +05:30 [INF] Request starting HTTP/2 PUT https://localhost:7226/api/v1/feedbacks/98275b28-40e4-4a46-b590-4eaab45c165c - application/json 43
+2025-06-18 15:37:53.274 +05:30 [INF] CORS policy execution failed.
+2025-06-18 15:37:53.274 +05:30 [INF] Request origin https://localhost:7226 does not have permission to access the resource.
+2025-06-18 15:37:53.276 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.Update (TrueFeedback)'
+2025-06-18 15:37:53.291 +05:30 [INF] Route matched with {action = "Update", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TrueFeedback.Models.Feedback]] Update(System.Guid, FeedbackUpdateReqDto) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-06-18 15:37:53.303 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.Update (TrueFeedback) - Validation state: "Valid"
+2025-06-18 15:37:53.549 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Created", f."IsDeleted", f."Message", f."Rating", f."Reply", f."ReplyToId", f."Updated", f."UserId"
+FROM "Feedbacks" AS f
+WHERE f."Id" = @__p_0
+LIMIT 1
+2025-06-18 15:37:53.551 +05:30 [INF] Item with id 98275b28-40e4-4a46-b590-4eaab45c165c fetched successfully
+2025-06-18 15:37:53.552 +05:30 [INF] Item with id 98275b28-40e4-4a46-b590-4eaab45c165c fetched successfully
+2025-06-18 15:37:53.584 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p3='?' (DbType = Guid), @p0='?', @p1='?' (DbType = Single), @p2='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Feedbacks" SET "Message" = @p0, "Rating" = @p1, "Updated" = @p2
+WHERE "Id" = @p3;
+2025-06-18 15:37:53.585 +05:30 [INF] Item with id 98275b28-40e4-4a46-b590-4eaab45c165c updated successfully
+2025-06-18 15:37:53.585 +05:30 [INF] Executed action method TrueFeedback.Controllers.FeedbackController.Update (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 281.3434ms.
+2025-06-18 15:37:53.585 +05:30 [INF] Executing OkObjectResult, writing value of type 'TrueFeedback.Models.Feedback'.
+2025-06-18 15:37:53.586 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.Update (TrueFeedback) in 293.9948ms
+2025-06-18 15:37:53.586 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.Update (TrueFeedback)'
+2025-06-18 15:37:53.586 +05:30 [INF] Request finished HTTP/2 PUT https://localhost:7226/api/v1/feedbacks/98275b28-40e4-4a46-b590-4eaab45c165c - 200 null application/json; charset=utf-8 312.5861ms
+2025-06-18 15:38:24.661 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/api/v1/feedbacks - null null
+2025-06-18 15:38:24.664 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-06-18 15:38:24.666 +05:30 [INF] Route matched with {action = "GetAll", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[TrueFeedback.Models.Feedback]]] GetAll(QueryParameters) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-06-18 15:38:24.670 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) - Validation state: "Valid"
+2025-06-18 15:38:24.671 +05:30 [INF] All Items fetched successfully
+2025-06-18 15:38:24.673 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Created", f."IsDeleted", f."Message", f."Rating", f."Reply", f."ReplyToId", f."Updated", f."UserId"
+FROM "Feedbacks" AS f
+2025-06-18 15:38:24.677 +05:30 [INF] Executed action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 7.1508ms.
+2025-06-18 15:38:24.678 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TrueFeedback.Models.Feedback, TrueFeedback, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-18 15:38:24.679 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) in 12.9257ms
+2025-06-18 15:38:24.679 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-06-18 15:38:24.681 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/api/v1/feedbacks - 200 null application/json; charset=utf-8 19.0507ms
+2025-06-18 15:38:53.050 +05:30 [INF] Request starting HTTP/2 PUT https://localhost:7226/api/v1/feedbacks/dec30e70-b069-41ee-a264-60125fd5094f/reply - application/json 42
+2025-06-18 15:38:53.058 +05:30 [INF] CORS policy execution failed.
+2025-06-18 15:38:53.058 +05:30 [INF] Request origin https://localhost:7226 does not have permission to access the resource.
+2025-06-18 15:38:53.078 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2025-06-18 15:38:53.089 +05:30 [INF] AuthenticationScheme: Bearer was forbidden.
+2025-06-18 15:38:53.089 +05:30 [INF] Request finished HTTP/2 PUT https://localhost:7226/api/v1/feedbacks/dec30e70-b069-41ee-a264-60125fd5094f/reply - 403 0 null 41.9263ms
+2025-06-18 15:39:08.473 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/auth/login - application/json 52
+2025-06-18 15:39:08.474 +05:30 [INF] CORS policy execution failed.
+2025-06-18 15:39:08.475 +05:30 [INF] Request origin https://localhost:7226 does not have permission to access the resource.
+2025-06-18 15:39:08.476 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.AuthController.Login (TrueFeedback)'
+2025-06-18 15:39:08.476 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TrueFeedback.Models.DTOs.UserLoginReqDto) on controller TrueFeedback.Controllers.AuthController (TrueFeedback).
+2025-06-18 15:39:08.478 +05:30 [INF] Executing action method TrueFeedback.Controllers.AuthController.Login (TrueFeedback) - Validation state: "Valid"
+2025-06-18 15:39:08.478 +05:30 [INF] All Items fetched successfully
+2025-06-18 15:39:08.480 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Created", u."Email", u."IsDeleted", u."Password", u."RefreshToken", u."RefreshTokenExpiryTime", u."RoleId", u."UserName"
+FROM "Users" AS u
+2025-06-18 15:39:08.481 +05:30 [INF] All Items fetched successfully
+2025-06-18 15:39:08.483 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."RoleName"
+FROM "Roles" AS r
+2025-06-18 15:39:08.701 +05:30 [INF] Item with id 5e33b06e-2455-4d69-ab48-1fac548ce6f3 fetched successfully
+2025-06-18 15:39:08.706 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p2='?' (DbType = Guid), @p0='?', @p1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "RefreshToken" = @p0, "RefreshTokenExpiryTime" = @p1
+WHERE "Id" = @p2;
+2025-06-18 15:39:08.707 +05:30 [INF] Item with id 5e33b06e-2455-4d69-ab48-1fac548ce6f3 updated successfully
+2025-06-18 15:39:08.707 +05:30 [INF] User test@test.com successfully authenticated
+2025-06-18 15:39:08.707 +05:30 [INF] Executed action method TrueFeedback.Controllers.AuthController.Login (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 229.4157ms.
+2025-06-18 15:39:08.708 +05:30 [INF] Executing OkObjectResult, writing value of type 'AuthRespDto'.
+2025-06-18 15:39:08.708 +05:30 [INF] Executed action TrueFeedback.Controllers.AuthController.Login (TrueFeedback) in 231.9484ms
+2025-06-18 15:39:08.708 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.AuthController.Login (TrueFeedback)'
+2025-06-18 15:39:08.708 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/auth/login - 200 null application/json; charset=utf-8 235.8841ms
+2025-06-18 15:39:58.959 +05:30 [INF] Request starting HTTP/2 PUT https://localhost:7226/api/v1/feedbacks/98275b28-40e4-4a46-b590-4eaab45c165c/reply - application/json 42
+2025-06-18 15:39:58.960 +05:30 [INF] CORS policy execution failed.
+2025-06-18 15:39:58.960 +05:30 [INF] Request origin https://localhost:7226 does not have permission to access the resource.
+2025-06-18 15:39:58.961 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.Reply (TrueFeedback)'
+2025-06-18 15:39:58.990 +05:30 [INF] Route matched with {action = "Reply", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TrueFeedback.Models.Feedback]] Reply(System.Guid, FeedbackReplyReqDto) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-06-18 15:39:58.998 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.Reply (TrueFeedback) - Validation state: "Valid"
+2025-06-18 15:39:59.005 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Created", f."IsDeleted", f."Message", f."Rating", f."Reply", f."ReplyToId", f."Updated", f."UserId"
+FROM "Feedbacks" AS f
+WHERE f."Id" = @__p_0
+LIMIT 1
+2025-06-18 15:39:59.006 +05:30 [INF] Item with id 98275b28-40e4-4a46-b590-4eaab45c165c fetched successfully
+2025-06-18 15:39:59.030 +05:30 [INF] Item with id 98275b28-40e4-4a46-b590-4eaab45c165c fetched successfully
+2025-06-18 15:39:59.035 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p2='?' (DbType = Guid), @p0='?', @p1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Feedbacks" SET "Reply" = @p0, "Updated" = @p1
+WHERE "Id" = @p2;
+2025-06-18 15:39:59.035 +05:30 [INF] Item with id 98275b28-40e4-4a46-b590-4eaab45c165c updated successfully
+2025-06-18 15:39:59.036 +05:30 [INF] Executed action method TrueFeedback.Controllers.FeedbackController.Reply (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 37.8818ms.
+2025-06-18 15:39:59.036 +05:30 [INF] Executing OkObjectResult, writing value of type 'TrueFeedback.Models.Feedback'.
+2025-06-18 15:39:59.037 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.Reply (TrueFeedback) in 46.7021ms
+2025-06-18 15:39:59.037 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.Reply (TrueFeedback)'
+2025-06-18 15:39:59.037 +05:30 [INF] Request finished HTTP/2 PUT https://localhost:7226/api/v1/feedbacks/98275b28-40e4-4a46-b590-4eaab45c165c/reply - 200 null application/json; charset=utf-8 78.8158ms
+2025-06-18 16:29:55.007 +05:30 [INF] Executed endpoint '/frontend/listener'
+2025-06-18 16:29:55.008 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7226/frontend/listener?id=pPav5G-M1F508TXltlNLvg - 101 null null 765186.9579ms
+2025-06-18 16:30:05.095 +05:30 [INF] Application is shutting down...
