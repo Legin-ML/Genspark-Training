@@ -1,0 +1,75 @@
+<div class="container mt-4">
+  <h2>User Management</h2>
+
+  <form [formGroup]="userAddForm" (ngSubmit)="addUser()" class="border p-3 rounded bg-light mb-4">
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input class="form-control" formControlName="username" />
+      <div class="text-danger mt-1" *ngIf="userAddForm.get('username')?.hasError('bannedWord')">
+        Username contains banned word
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input class="form-control" formControlName="email" />
+      <div class="text-danger mt-1" *ngIf="userAddForm.get('email')?.invalid && userAddForm.get('email')?.touched">
+        Invalid email
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password" />
+      <div class="text-danger mt-1" *ngIf="userAddForm.get('password')?.hasError('weakPassword')">
+        Password must be 6+ chars
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Confirm Password</label>
+      <input type="password" class="form-control" formControlName="confirmPassword" />
+      <div class="text-danger mt-1" *ngIf="userAddForm.hasError('passwordMismatch')">
+        Passwords do not match
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Role</label>
+      <select class="form-select" formControlName="role">
+        <option value="">Select Role</option>
+        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="userAddForm.invalid">Add User</button>
+  </form>
+
+  <hr />
+
+  <h4>Search & Filter</h4>
+  <form [formGroup]="filterForm" class="row g-3 mb-3">
+    <div class="col-md-6">
+      <input
+        type="text"
+        class="form-control"
+        formControlName="search"
+        placeholder="Search by username..." />
+    </div>
+    <div class="col-md-4">
+      <select class="form-select" formControlName="role">
+        <option value="">All Roles</option>
+        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+      </select>
+    </div>
+  </form>
+
+  <div *ngIf="filteredUsers$ | async as users">
+    <h5>User List ({{ users.length }})</h5>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let user of users">
+        <strong>{{ user.username }}</strong> – {{ user.email }} ({{ user.role }})
+      </li>
+    </ul>
+  </div>
+</div>
