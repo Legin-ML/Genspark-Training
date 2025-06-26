@@ -1,0 +1,17 @@
+<input
+  type="text"
+  [(ngModel)]="searchString"
+  (input)="handleSearch()"
+  placeholder="Start typing to search..."
+  style="border: 1px solid black; padding: 8px; width: 100%; max-width: 400px; margin-bottom: 16px;"
+/>
+ @if (recipes) {
+  <div style="display: flex; flex-wrap: wrap;">
+    @for (item of recipes; track item.id) {
+      <app-recipe [recipe]="item"></app-recipe>
+    }
+  </div>
+}
+@else {
+  <p><i>No recipes available.</i></p>
+}
