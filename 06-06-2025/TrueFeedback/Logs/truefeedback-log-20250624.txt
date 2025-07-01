@@ -1,0 +1,56 @@
+2025-06-24 23:17:34.344 +05:30 [INF] User profile is available. Using '/Users/legin/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-24 23:17:34.802 +05:30 [INF] Now listening on: https://localhost:7226
+2025-06-24 23:17:34.804 +05:30 [INF] Now listening on: http://localhost:5284
+2025-06-24 23:17:34.809 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-24 23:17:34.811 +05:30 [INF] Hosting environment: Development
+2025-06-24 23:17:34.811 +05:30 [INF] Content root path: /Users/legin/Documents/Genspark-Training/06-06-2025/TrueFeedback
+2025-06-24 23:17:35.780 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - null null
+2025-06-24 23:17:36.230 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - 200 null text/html;charset=utf-8 451.8505ms
+2025-06-24 23:17:36.508 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - null null
+2025-06-24 23:17:36.742 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 234.3212ms
+2025-06-24 23:18:46.695 +05:30 [INF] Application is shutting down...
+2025-06-24 23:18:53.200 +05:30 [INF] User profile is available. Using '/Users/legin/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-24 23:18:53.559 +05:30 [INF] Now listening on: https://localhost:7226
+2025-06-24 23:18:53.560 +05:30 [INF] Now listening on: http://localhost:5284
+2025-06-24 23:18:53.566 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-24 23:18:53.568 +05:30 [INF] Hosting environment: Development
+2025-06-24 23:18:53.568 +05:30 [INF] Content root path: /Users/legin/Documents/Genspark-Training/06-06-2025/TrueFeedback
+2025-06-24 23:18:54.575 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - null null
+2025-06-24 23:18:54.858 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - 200 null text/html;charset=utf-8 284.2054ms
+2025-06-24 23:18:54.951 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - null null
+2025-06-24 23:18:55.245 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 294.068ms
+2025-06-24 23:21:48.901 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - null null
+2025-06-24 23:21:48.905 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - 200 null text/html;charset=utf-8 4.3214ms
+2025-06-24 23:21:48.985 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - null null
+2025-06-24 23:21:49.011 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.611ms
+2025-06-24 23:21:50.836 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - null null
+2025-06-24 23:21:50.838 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - 200 null text/html;charset=utf-8 2.0178ms
+2025-06-24 23:21:50.942 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - null null
+2025-06-24 23:21:51.040 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 97.9507ms
+2025-06-24 23:22:01.295 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7226/api/v1/auth/login - null 0
+2025-06-24 23:22:01.303 +05:30 [INF] CORS policy execution successful.
+2025-06-24 23:22:01.306 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7226/api/v1/auth/login - 204 null null 10.6493ms
+2025-06-24 23:22:01.308 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/auth/login - application/json 43
+2025-06-24 23:22:01.312 +05:30 [INF] CORS policy execution successful.
+2025-06-24 23:22:01.439 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.AuthController.Login (TrueFeedback)'
+2025-06-24 23:22:01.482 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TrueFeedback.Models.DTOs.UserLoginReqDto) on controller TrueFeedback.Controllers.AuthController (TrueFeedback).
+2025-06-24 23:22:02.892 +05:30 [INF] Executing action method TrueFeedback.Controllers.AuthController.Login (TrueFeedback) - Validation state: "Valid"
+2025-06-24 23:22:02.900 +05:30 [INF] All Items fetched successfully
+2025-06-24 23:22:03.777 +05:30 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Created", u."Email", u."IsDeleted", u."Password", u."RefreshToken", u."RefreshTokenExpiryTime", u."RoleId", u."UserName"
+FROM "Users" AS u
+2025-06-24 23:22:03.995 +05:30 [INF] All Items fetched successfully
+2025-06-24 23:22:04.012 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."RoleName"
+FROM "Roles" AS r
+2025-06-24 23:22:04.325 +05:30 [INF] Item with id 5e33b06e-2455-4d69-ab48-1fac548ce6f3 fetched successfully
+2025-06-24 23:22:04.497 +05:30 [INF] Executed DbCommand (27ms) [Parameters=[@p2='?' (DbType = Guid), @p0='?', @p1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "RefreshToken" = @p0, "RefreshTokenExpiryTime" = @p1
+WHERE "Id" = @p2;
+2025-06-24 23:22:04.512 +05:30 [INF] Item with id 5e33b06e-2455-4d69-ab48-1fac548ce6f3 updated successfully
+2025-06-24 23:22:04.513 +05:30 [INF] User test@test.com successfully authenticated
+2025-06-24 23:22:04.562 +05:30 [INF] Executed action method TrueFeedback.Controllers.AuthController.Login (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1664.1149ms.
+2025-06-24 23:22:04.600 +05:30 [INF] Executing OkObjectResult, writing value of type 'AuthRespDto'.
+2025-06-24 23:22:04.700 +05:30 [INF] Executed action TrueFeedback.Controllers.AuthController.Login (TrueFeedback) in 3210.7992ms
+2025-06-24 23:22:04.701 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.AuthController.Login (TrueFeedback)'
+2025-06-24 23:22:04.725 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/auth/login - 200 null application/json; charset=utf-8 3416.7418ms

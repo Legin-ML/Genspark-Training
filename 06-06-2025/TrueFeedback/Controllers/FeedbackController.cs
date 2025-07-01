@@ -4,6 +4,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.SignalR;
 using TrueFeedback.Hubs;
 using TrueFeedback.Models;
+using TrueFeedback.Models.DTOs;
 using TrueFeedback.Services;
 
 namespace TrueFeedback.Controllers;
@@ -23,7 +24,7 @@ public class FeedbackController : ControllerBase
 
     [HttpGet]
     [AllowAnonymous]
-    public async Task<ActionResult<IEnumerable<Feedback>>> GetAll([FromQuery] QueryParameters query)
+    public async Task<ActionResult<PagedResult<Feedback>>> GetAll([FromQuery] QueryParameters query)
     {
         var feedbacks = await _feedbackService.GetAllAsync(query);
         return Ok(feedbacks);
@@ -66,7 +67,7 @@ public class FeedbackController : ControllerBase
         }
         catch (UnauthorizedAccessException ex)
         {
-            return Forbid(ex.Message);
+            return StatusCode(StatusCodes.Status403Forbidden, ex.Message);
         }
         catch (Exception ex)
         {

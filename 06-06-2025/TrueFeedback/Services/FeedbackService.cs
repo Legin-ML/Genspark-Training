@@ -1,5 +1,6 @@
 ﻿using TrueFeedback.Interfaces;
 using TrueFeedback.Models;
+using TrueFeedback.Models.DTOs;
 
 namespace TrueFeedback.Services;
 
@@ -12,7 +13,7 @@ public class FeedbackService
         _feedbackRepository = feedbackRepository;
     }
 
-    public async Task<IEnumerable<Feedback>> GetAllAsync(QueryParameters query)
+    public async Task<PagedResult<Feedback>> GetAllAsync(QueryParameters query)
     {
         var feedbacks = (await _feedbackRepository.GetAllAsync())
             .Where(f => !f.IsDeleted)
@@ -35,10 +36,16 @@ public class FeedbackService
             };
         }
 
-        return feedbacks
+        var paged =  feedbacks
             .Skip((query.Page - 1) * query.PageSize)
             .Take(query.PageSize)
             .ToList();
+        
+        return new PagedResult<Feedback>
+        {
+            Items = paged,
+            TotalCount = feedbacks.Count(),
+        };
     }
 
     public async Task<Feedback> GetByIdAsync(Guid id)
