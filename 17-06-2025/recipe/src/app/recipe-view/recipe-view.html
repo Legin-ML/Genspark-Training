@@ -1,0 +1,22 @@
+@if (loading) {
+  <p>Loading recipe...</p>
+}
+@else if (errorMessage) {
+  <p style="color: red;">{{ errorMessage }}</p>
+}
+@else if (recipe) {
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h3 class="card-title">{{ recipe.name }}</h3>
+      <img [src]="recipe.image" alt="{{ recipe.name }}" style="width: 100%; height: auto;" />
+      <p class="card-text"><strong>Cuisine:</strong> {{ recipe.cuisine }}</p>
+      <p class="card-text"><strong>Time:</strong> {{ recipe.cookTimeMinutes }} mins</p>
+      <p class="card-text">
+        <strong>Ingredients:</strong> {{ recipe.ingredients?.join(', ') }}
+      </p>
+    </div>
+  </div>
+}
+@else {
+  <p><i>No recipe data available.</i></p>
+}

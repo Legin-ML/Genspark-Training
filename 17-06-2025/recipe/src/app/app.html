@@ -1,0 +1,15 @@
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <h1>Around the world in 80 dishes</h1>
+  
+  <div>
+    @if (authService.isLoggedIn()) {
+      <button (click)="logout()" style="margin-left: 1rem;">Logout</button>
+    }
+    @else {
+      <button (click)="login()" style="margin-left: 1rem;">Login</button>
+    }
+  </div>
+</div>
+<hr />
+
+<router-outlet></router-outlet>
