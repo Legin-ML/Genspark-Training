@@ -27,8 +27,16 @@ public class AuthController : ControllerBase
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var token = await _authService.LoginAsync(userDto);
-        return Ok(token);
+        try
+        {
+
+            var token = await _authService.LoginAsync(userDto);
+            return Ok(token);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
     }
 
     /// <summary>

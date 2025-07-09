@@ -1,0 +1,19 @@
+<h2 class="form-title">We value your feedback</h2>
+
+<form [formGroup]="newFeedbackForm" (ngSubmit)="onSubmit()" class="feedback-form">
+
+  <div class="p-field">
+    <label for="message">Your Feedback</label>
+    <textarea pTextarea formControlName="message" rows="5" placeholder="Enter your feedback"></textarea>
+  </div>
+
+  <div class="p-field">
+    <label for="rating">Your Rating</label>
+    <p-rating formControlName="rating"></p-rating>
+  </div>
+
+  <div class="submit-button">
+    <p-button label="Submit" type="submit" [disabled]="newFeedbackForm.invalid"></p-button>
+  </div>
+
+</form>

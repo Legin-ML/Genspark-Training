@@ -1,0 +1,83 @@
+<div class="toolbar p-mb-3">
+  <input
+    type="text"
+    pInputText
+    placeholder="Search..."
+    [(ngModel)]="searchString"
+    (input)="onGlobalFilter()"
+  />
+  <p-multiSelect
+    [options]="ratingOptions"
+    defaultLabel="Filter by rating"
+    (onChange)="onRatingFilter($event.value)"
+    display="chip"
+    [style]="{ width: '200px', marginLeft: '1rem' }"
+  ></p-multiSelect>
+</div>
+
+<p-table
+  [value]="feedbacks"
+  [lazy]="true"
+  (onLazyLoad)="loadFeedbacks($event)"
+  [paginator]="true"
+  [rows]="pageSize"
+  [totalRecords]="totalFeedbacks"
+  [loading]="loading"
+  [rowsPerPageOptions]="[5, 10, 20]"
+  [responsiveLayout]="'scroll'"
+  [sortField]="sortField"
+  [sortOrder]="sortOrder"
+  [filters]="filters"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="username">
+        User <p-sortIcon field="username"></p-sortIcon>
+      </th>
+      <th pSortableColumn="message">
+        Message <p-sortIcon field="message"></p-sortIcon>
+      </th>
+      <th pSortableColumn="rating">
+        Rating <p-sortIcon field="rating"></p-sortIcon>
+      </th>
+      <th pSortableColumn="reply">
+        Reply <p-sortIcon field="reply"></p-sortIcon>
+      </th>
+      <th pSortableColumn="created">
+        Created <p-sortIcon field="created"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-feedback>
+    <tr (click)="onSelect(feedback)" style="cursor: pointer;">
+      <td>{{ feedback.username }}</td>
+      <td>{{ feedback.message }}</td>
+      <td>{{ feedback.rating }}</td>
+      <td>
+        <ng-container *ngIf="feedback.reply; else noReply">
+          {{ feedback.reply }}
+        </ng-container>
+        <ng-template #noReply>
+          <span style="font-style: italic; color: gray;">No reply yet</span>
+        </ng-template>
+      </td>
+      <td>{{ feedback.created | date: 'medium' }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog
+  header="Feedback Details"
+  [(visible)]="dialogVisible"
+  [modal]="true"
+  [style]="{ width: '500px' }"
+  [closable]="true"
+  (onHide)="selectedFeedback = null"
+>
+  <app-feedback-detail
+    *ngIf="selectedFeedback"
+    [feedback]="selectedFeedback"
+    (updated)="onFeedbackUpdated()"
+  ></app-feedback-detail>
+</p-dialog>

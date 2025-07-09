@@ -1,0 +1,61 @@
+2025-07-03 10:03:02.061 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/api/v1/feedbacks?page=1&pageSize=999999 - null null
+2025-07-03 10:03:02.271 +05:30 [INF] CORS policy execution failed.
+2025-07-03 10:03:02.295 +05:30 [INF] Request origin http://localhost:4201 does not have permission to access the resource.
+2025-07-03 10:03:02.311 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-03 10:03:03.222 +05:30 [INF] Route matched with {action = "GetAll", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TrueFeedback.Models.DTOs.PagedResult`1[TrueFeedback.Models.Feedback]]] GetAll(QueryParameters) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-07-03 10:03:03.278 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) - Validation state: "Valid"
+2025-07-03 10:03:03.721 +05:30 [INF] All Items fetched successfully
+2025-07-03 10:03:03.926 +05:30 [INF] Executed DbCommand (55ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Created", f."IsDeleted", f."Message", f."Rating", f."Reply", f."ReplyToId", f."Updated", f."UserId"
+FROM "Feedbacks" AS f
+2025-07-03 10:03:03.962 +05:30 [INF] Executed action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 239.4832ms.
+2025-07-03 10:03:03.965 +05:30 [INF] Executing OkObjectResult, writing value of type 'TrueFeedback.Models.DTOs.PagedResult`1[[TrueFeedback.Models.Feedback, TrueFeedback, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 10:03:03.983 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) in 759.4159ms
+2025-07-03 10:03:03.984 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-03 10:03:03.984 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/api/v1/feedbacks?page=1&pageSize=999999 - 200 null application/json; charset=utf-8 1924.8976ms
+2025-07-03 10:24:48.090 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/api/v1/feedbacks?page=1&pageSize=999999 - null null
+2025-07-03 10:24:48.120 +05:30 [INF] CORS policy execution failed.
+2025-07-03 10:24:48.123 +05:30 [INF] Request origin http://localhost:3000 does not have permission to access the resource.
+2025-07-03 10:24:48.208 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-03 10:24:48.332 +05:30 [INF] Route matched with {action = "GetAll", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TrueFeedback.Models.DTOs.PagedResult`1[TrueFeedback.Models.Feedback]]] GetAll(QueryParameters) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-07-03 10:24:48.392 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) - Validation state: "Valid"
+2025-07-03 10:24:48.716 +05:30 [INF] All Items fetched successfully
+2025-07-03 10:24:48.799 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Created", f."IsDeleted", f."Message", f."Rating", f."Reply", f."ReplyToId", f."Updated", f."UserId"
+FROM "Feedbacks" AS f
+2025-07-03 10:24:48.841 +05:30 [INF] Executed action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 127.5008ms.
+2025-07-03 10:24:48.842 +05:30 [INF] Executing OkObjectResult, writing value of type 'TrueFeedback.Models.DTOs.PagedResult`1[[TrueFeedback.Models.Feedback, TrueFeedback, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 10:24:48.859 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) in 526.3156ms
+2025-07-03 10:24:48.861 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-03 10:24:48.862 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/api/v1/feedbacks?page=1&pageSize=999999 - 200 null application/json; charset=utf-8 777.5429ms
+2025-07-03 10:31:36.503 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/api/v1/feedbacks?page=1&pageSize=999999 - null null
+2025-07-03 10:31:36.512 +05:30 [INF] CORS policy execution failed.
+2025-07-03 10:31:36.515 +05:30 [INF] Request origin http://localhost:3001 does not have permission to access the resource.
+2025-07-03 10:31:36.530 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-03 10:31:36.717 +05:30 [INF] Route matched with {action = "GetAll", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TrueFeedback.Models.DTOs.PagedResult`1[TrueFeedback.Models.Feedback]]] GetAll(QueryParameters) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-07-03 10:31:36.781 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) - Validation state: "Valid"
+2025-07-03 10:31:37.106 +05:30 [INF] All Items fetched successfully
+2025-07-03 10:31:37.258 +05:30 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Created", f."IsDeleted", f."Message", f."Rating", f."Reply", f."ReplyToId", f."Updated", f."UserId"
+FROM "Feedbacks" AS f
+2025-07-03 10:31:37.279 +05:30 [INF] Executed action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 172.7301ms.
+2025-07-03 10:31:37.280 +05:30 [INF] Executing OkObjectResult, writing value of type 'TrueFeedback.Models.DTOs.PagedResult`1[[TrueFeedback.Models.Feedback, TrueFeedback, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 10:31:37.292 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) in 573.7317ms
+2025-07-03 10:31:37.304 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-03 10:31:37.305 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/api/v1/feedbacks?page=1&pageSize=999999 - 200 null application/json; charset=utf-8 802.5357ms
+2025-07-03 10:32:01.409 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/api/v1/feedbacks?page=1&pageSize=999999 - null null
+2025-07-03 10:32:01.412 +05:30 [INF] CORS policy execution failed.
+2025-07-03 10:32:01.412 +05:30 [INF] Request origin http://localhost:3001 does not have permission to access the resource.
+2025-07-03 10:32:01.413 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-03 10:32:01.464 +05:30 [INF] Route matched with {action = "GetAll", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TrueFeedback.Models.DTOs.PagedResult`1[TrueFeedback.Models.Feedback]]] GetAll(QueryParameters) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-07-03 10:32:01.472 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) - Validation state: "Valid"
+2025-07-03 10:32:01.561 +05:30 [INF] All Items fetched successfully
+2025-07-03 10:32:01.588 +05:30 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Created", f."IsDeleted", f."Message", f."Rating", f."Reply", f."ReplyToId", f."Updated", f."UserId"
+FROM "Feedbacks" AS f
+2025-07-03 10:32:01.597 +05:30 [INF] Executed action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 36.4754ms.
+2025-07-03 10:32:01.598 +05:30 [INF] Executing OkObjectResult, writing value of type 'TrueFeedback.Models.DTOs.PagedResult`1[[TrueFeedback.Models.Feedback, TrueFeedback, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 10:32:01.611 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) in 146.3531ms
+2025-07-03 10:32:01.611 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-03 10:32:01.611 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/api/v1/feedbacks?page=1&pageSize=999999 - 200 null application/json; charset=utf-8 201.815ms
+2025-07-03 10:36:15.433 +05:30 [INF] Application is shutting down...

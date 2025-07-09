@@ -58,6 +58,18 @@ public class UserService
 
     public async Task<User> CreateAsync(CreateUserDto dto)
     {
+        var existingUsers = await _userRepository.GetAllAsync();
+
+        if (existingUsers.Any(u => u.Email.Equals(dto.Email, StringComparison.OrdinalIgnoreCase) && !u.IsDeleted))
+        {
+            throw new InvalidOperationException($"Email '{dto.Email}' is already in use.");
+        }
+
+        if (existingUsers.Any(u => u.UserName.Equals(dto.UserName, StringComparison.OrdinalIgnoreCase) && !u.IsDeleted))
+        {
+            throw new InvalidOperationException($"Username '{dto.UserName}' is already in use.");
+        }
+
         var roles = await _roleRepository.GetAllAsync();
         var role = roles.FirstOrDefault(r => r.RoleName.Equals(dto.RoleName, StringComparison.OrdinalIgnoreCase));
         if (role == null)

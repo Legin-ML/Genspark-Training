@@ -1,0 +1,24 @@
+.profile-card {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  background: #000000;
+}
+.profile-card label {
+  font-weight: bold;
+  display: block;
+  margin-top: 1rem;
+}
+.profile-card p {
+  margin: 0.3rem 0 1rem;
+}
+
+.p-field-pass label {
+  padding: 1rem;
+}
+
+.p-dialog-footer {
+  padding-top: 1rem;
+}

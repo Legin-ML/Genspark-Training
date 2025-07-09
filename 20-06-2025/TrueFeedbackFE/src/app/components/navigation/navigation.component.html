@@ -1,0 +1,37 @@
+<p-menubar [model]="items">
+  <ng-template pTemplate="end">
+    <div class="right-menu">
+      <ng-container *ngIf="authService.isLoggedIn(); else guest">
+        <button
+          pButton
+          type="button"
+          label="Logout"
+          class="p-button-text p-mr-2"
+          (click)="handleLogout()"
+        ></button>
+
+        <a [routerLink]="'/profile'" class="p-mr-2">
+          <p-avatar
+            icon="pi pi-user"
+            shape="circle"
+            styleClass="clickable-avatar"
+            [style]="{
+              backgroundColor: '#000000',
+              color: '#ffffff'
+            }"
+          ></p-avatar>
+        </a>
+      </ng-container>
+
+      <ng-template #guest>
+        <button
+          pButton
+          type="button"
+          label="Login / Signup"
+          class="p-button-text p-mr-2"
+          routerLink="/login"
+        ></button>
+      </ng-template>
+    </div>
+  </ng-template>
+</p-menubar>

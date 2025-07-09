@@ -1,5 +1,6 @@
 ﻿services:
   truefeedback-api:
+    image: truefeedback-api
     build:
       context: .
       dockerfile: Dockerfile
@@ -7,14 +8,23 @@
         BUILD_CONFIGURATION: Development
     ports:
       - "8080:8080"
-      - "7226:7226"
+      - "8081:8081"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=User ID=postgres;Password=postgres;Host=truefeedback-db;Port=5432;Database=TrueFeedback;
     depends_on:
       - truefeedback-migrator
+#    deploy:
+#      replicas: 2
+#      resources:
+#        limits:
+#          cpus: "0.25"
+#          memory: 128M
+#      restart_policy:
+#        condition: on-failure
         
   truefeedback-migrator:
+    image: truefeedback-migrator
     build:
       context: .
       dockerfile: Migrator.Dockerfile
@@ -24,6 +34,14 @@
       - ConnectionStrings__DefaultConnection=User ID=postgres;Password=postgres;Host=truefeedback-db;Port=5432;Database=TrueFeedback;
     depends_on:
       - truefeedback-db
+#    deploy:
+#      replicas: 2
+#      resources:
+#        limits:
+#          cpus: "0.25"
+#          memory: 128M
+#      restart_policy:
+#        condition: none
 
 
   truefeedback-db:
@@ -36,6 +54,27 @@
       - "5433:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
+#    deploy:
+#      replicas: 1
+#      resources:
+#        limits:
+#          cpus: "0.50"
+#          memory: 256M
+#      restart_policy:
+#        condition: on-failure
+        
+  truefeedback-fe:
+    image: truefeedback-fe
+    ports:
+      - "4200:3000"
+#    deploy:
+#      replicas: 2
+#      resources:
+#        limits:
+#          cpus: "0.25"
+#          memory: 128M
+#      restart_policy:
+#        condition: on-failure
 
 volumes:
   db_data:

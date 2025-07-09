@@ -1,0 +1,20 @@
+.form-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.feedback-form {
+  max-width: 600px;
+  margin: 0 auto;
+
+  .p-field {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .submit-button {
+    text-align: center;
+    margin-top: 2rem;
+  }
+}

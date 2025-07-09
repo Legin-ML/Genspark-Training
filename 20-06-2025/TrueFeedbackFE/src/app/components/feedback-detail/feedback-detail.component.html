@@ -1,0 +1,61 @@
+<div class="detail-card" *ngIf="form">
+  <!-- <h3>Feedback Details</h3> -->
+
+  <form [formGroup]="form" (ngSubmit)="onSave()">
+    <div class="form-group">
+      <label for="rating">Rating:</label>
+      <p-rating id="rating" formControlName="rating" readonly="true"></p-rating>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message:</label>
+      <textarea
+        pTextarea
+        id="message"
+        formControlName="message"
+        rows="4"
+        autoResize="true"
+      ></textarea>
+    </div>
+
+    <p-button
+  *ngIf="isOwner"
+  label="Save"
+  type="submit"
+  styleClass="mt-2"
+  [disabled]="form.invalid"
+></p-button>
+
+<div style="margin-top: 0.5rem;">
+  <p-button
+    *ngIf="isOwner || isAdmin"
+    label="Delete"
+    styleClass="p-button-danger"
+    type="button"
+    icon="pi pi-trash"
+    (onClick)="onDelete()"
+  ></p-button>
+</div>
+
+    <div *ngIf="isAdmin" class="form-group" style="margin-top: 1rem;">
+      <label for="reply">Reply:</label>
+      <textarea
+        pTextarea
+        id="reply"
+        formControlName="reply"
+        rows="3"
+        autoResize="true"
+        placeholder="Reply to user"
+      ></textarea>
+
+      <p-button
+        label="Send Reply"
+        type="button"
+        styleClass="mt-2"
+        [style]="{ 'margin-top': '1rem' }"
+        (onClick)="onSendReply()"
+        [disabled]="form.get('reply')?.invalid"
+      ></p-button>
+    </div>
+  </form>
+</div>

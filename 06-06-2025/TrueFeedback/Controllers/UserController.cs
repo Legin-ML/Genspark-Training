@@ -46,7 +46,7 @@ public class UserController : ControllerBase
             var createdUser = await _userService.CreateAsync(dto);
             return CreatedAtAction(nameof(GetUserById), new { id = createdUser.Id }, createdUser);
         }
-        catch (ArgumentException ex)
+        catch (Exception ex)
         {
             return BadRequest(new { error = ex.Message });
         }
