@@ -1,3 +1,5 @@
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 using BlobStorage.Interfaces;
 
 namespace BlobStorage.Services;
@@ -10,7 +12,13 @@ public class FileService : IFileService
 
     public FileService(IConfiguration configuration)
     {
-        var sasUrl = configuration["AzureBlob:ContainerSasUrl"];
+        var vault = configuration["AzureKeyVault:VaultUrl"];
+        var keyName = configuration["AzureKeyVault:SecretName"];
+        
+        SecretClient secretClient = new SecretClient(new Uri(vault), new DefaultAzureCredential());
+        
+        KeyVaultSecret secret = secretClient.GetSecret(keyName);
+        string sasUrl = secret.Value;
         _containerClient = new BlobContainerClient(new Uri(sasUrl));
     }
 
