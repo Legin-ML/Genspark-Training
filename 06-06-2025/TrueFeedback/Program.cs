@@ -1,5 +1,6 @@
 using System.Text;
 using AspNetCoreRateLimit;
+using Azure.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -19,8 +20,24 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
         
+        
+        
+        builder.Configuration.AddAzureKeyVault(new Uri(builder.Configuration["AzureKeyVault:VaultUri"]), new DefaultAzureCredential());
+
+        
+        var blobConnectionString = builder.Configuration["BlobConnectionString"];
+        
         Log.Logger = new LoggerConfiguration()
-            .ReadFrom.Configuration(builder.Configuration)
+            .MinimumLevel.Information()
+            .WriteTo.Console()
+            .WriteTo.File("Logs/truefeedback-log-.txt", rollingInterval: RollingInterval.Day)
+            .WriteTo.AzureBlobStorage(
+                connectionString: blobConnectionString,
+                storageContainerName: "logs",
+                storageFileName: "{yyyy}/{MM}/{dd}/log.txt",
+                outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}"
+            )
+            .Enrich.FromLogContext()
             .CreateLogger();
 
         builder.Host.UseSerilog();
@@ -31,7 +48,7 @@ public class Program
         
         builder.Services.AddInMemoryRateLimiting();
         builder.Services.AddMemoryCache();
-
+        
         builder.Services.Configure<IpRateLimitOptions>(options =>
         {
             options.GeneralRules = new List<RateLimitRule>
@@ -82,7 +99,7 @@ public class Program
             });
         });
         
-        var jwtKey = builder.Configuration["Keys:JwtTokenKey"];
+        var jwtKey = builder.Configuration["JwtTokenKey"];
         var keyBytes = Encoding.UTF8.GetBytes(jwtKey);
         
         builder.Services.AddAuthentication(options =>
@@ -111,7 +128,7 @@ public class Program
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials()
-                    .WithOrigins("https://itemvaultlegin.z13.web.core.windows.net"); 
+                    .WithOrigins("http://localhost:4200"); 
             });
         });
         builder.Services.AddScoped<IRepository<Guid, User>, UserRepository>();
@@ -126,7 +143,7 @@ public class Program
         builder.Services.AddScoped<AuthService>();
         
         builder.Services.AddDbContext<TrueFeedbackContext>(options =>
-            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+            options.UseNpgsql(builder.Configuration["DefaultConnection"]));
 
         var app = builder.Build();
 

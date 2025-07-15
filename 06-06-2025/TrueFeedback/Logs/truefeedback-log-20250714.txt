@@ -1,0 +1,303 @@
+2025-07-14 11:48:36.886 +05:30 [INF] User profile is available. Using '/Users/legin/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-14 11:48:37.598 +05:30 [INF] Now listening on: https://localhost:7226
+2025-07-14 11:48:37.600 +05:30 [INF] Now listening on: http://localhost:5284
+2025-07-14 11:48:37.608 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-14 11:48:37.610 +05:30 [INF] Hosting environment: Development
+2025-07-14 11:48:37.611 +05:30 [INF] Content root path: /Users/legin/Documents/Genspark-Training/06-06-2025/TrueFeedback
+2025-07-14 11:48:50.180 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - null null
+2025-07-14 11:48:50.416 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - 200 null text/html;charset=utf-8 239.4036ms
+2025-07-14 11:48:50.724 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - null null
+2025-07-14 11:48:51.138 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 414.115ms
+2025-07-14 11:48:59.104 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/api/v1/feedbacks - null null
+2025-07-14 11:48:59.262 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-14 11:48:59.314 +05:30 [INF] Route matched with {action = "GetAll", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TrueFeedback.Models.DTOs.PagedResult`1[TrueFeedback.Models.Feedback]]] GetAll(QueryParameters) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-07-14 11:49:00.875 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) - Validation state: "Valid"
+2025-07-14 11:49:00.892 +05:30 [INF] All Items fetched successfully
+2025-07-14 11:49:01.482 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TrueFeedback.Contexts.TrueFeedbackContext'.
+System.ArgumentException: Couldn't set @microsoft.keyvault(secreturi (Parameter '@microsoft.keyvault(secreturi')
+ ---> System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at Npgsql.NpgsqlConnectionStringBuilder.GeneratedActions(GeneratedAction action, String keyword, Object& value)
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   --- End of inner exception stack trace ---
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnectionStringBuilder..ctor(String connectionString)
+   at Npgsql.NpgsqlConnection.SetupDataSource()
+   at Npgsql.NpgsqlConnection.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnection..ctor(String connectionString)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.ArgumentException: Couldn't set @microsoft.keyvault(secreturi (Parameter '@microsoft.keyvault(secreturi')
+ ---> System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at Npgsql.NpgsqlConnectionStringBuilder.GeneratedActions(GeneratedAction action, String keyword, Object& value)
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   --- End of inner exception stack trace ---
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnectionStringBuilder..ctor(String connectionString)
+   at Npgsql.NpgsqlConnection.SetupDataSource()
+   at Npgsql.NpgsqlConnection.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnection..ctor(String connectionString)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-07-14 11:49:01.492 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) in 2173.7864ms
+2025-07-14 11:49:01.494 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-14 11:49:01.498 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: Couldn't set @microsoft.keyvault(secreturi (Parameter '@microsoft.keyvault(secreturi')
+ ---> System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at Npgsql.NpgsqlConnectionStringBuilder.GeneratedActions(GeneratedAction action, String keyword, Object& value)
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   --- End of inner exception stack trace ---
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnectionStringBuilder..ctor(String connectionString)
+   at Npgsql.NpgsqlConnection.SetupDataSource()
+   at Npgsql.NpgsqlConnection.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnection..ctor(String connectionString)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at TrueFeedback.Repositories.Repository`2.GetAllAsync() in /Users/legin/Documents/Genspark-Training/06-06-2025/TrueFeedback/Repositories/Repository.cs:line 69
+   at TrueFeedback.Services.FeedbackService.GetAllAsync(QueryParameters query) in /Users/legin/Documents/Genspark-Training/06-06-2025/TrueFeedback/Services/FeedbackService.cs:line 18
+   at TrueFeedback.Controllers.FeedbackController.GetAll(QueryParameters query) in /Users/legin/Documents/Genspark-Training/06-06-2025/TrueFeedback/Controllers/FeedbackController.cs:line 29
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-14 11:49:01.548 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/api/v1/feedbacks - 500 null text/plain; charset=utf-8 2443.4922ms
+2025-07-14 11:51:33.656 +05:30 [INF] Application is shutting down...
+2025-07-14 11:51:46.052 +05:30 [INF] User profile is available. Using '/Users/legin/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-14 11:51:46.386 +05:30 [INF] Now listening on: https://localhost:7226
+2025-07-14 11:51:46.387 +05:30 [INF] Now listening on: http://localhost:5284
+2025-07-14 11:51:46.392 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-14 11:51:46.393 +05:30 [INF] Hosting environment: Development
+2025-07-14 11:51:46.394 +05:30 [INF] Content root path: /Users/legin/Documents/Genspark-Training/06-06-2025/TrueFeedback
+2025-07-14 11:51:51.981 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/api/v1/feedbacks - null null
+2025-07-14 11:51:52.155 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-14 11:51:52.198 +05:30 [INF] Route matched with {action = "GetAll", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TrueFeedback.Models.DTOs.PagedResult`1[TrueFeedback.Models.Feedback]]] GetAll(QueryParameters) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-07-14 11:51:53.745 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) - Validation state: "Valid"
+2025-07-14 11:51:53.757 +05:30 [INF] All Items fetched successfully
+2025-07-14 11:51:54.340 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TrueFeedback.Contexts.TrueFeedbackContext'.
+System.ArgumentException: Couldn't set @microsoft.keyvault(secreturi (Parameter '@microsoft.keyvault(secreturi')
+ ---> System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at Npgsql.NpgsqlConnectionStringBuilder.GeneratedActions(GeneratedAction action, String keyword, Object& value)
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   --- End of inner exception stack trace ---
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnectionStringBuilder..ctor(String connectionString)
+   at Npgsql.NpgsqlConnection.SetupDataSource()
+   at Npgsql.NpgsqlConnection.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnection..ctor(String connectionString)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.ArgumentException: Couldn't set @microsoft.keyvault(secreturi (Parameter '@microsoft.keyvault(secreturi')
+ ---> System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at Npgsql.NpgsqlConnectionStringBuilder.GeneratedActions(GeneratedAction action, String keyword, Object& value)
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   --- End of inner exception stack trace ---
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnectionStringBuilder..ctor(String connectionString)
+   at Npgsql.NpgsqlConnection.SetupDataSource()
+   at Npgsql.NpgsqlConnection.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnection..ctor(String connectionString)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-07-14 11:51:54.350 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) in 2146.9823ms
+2025-07-14 11:51:54.353 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-14 11:51:54.357 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: Couldn't set @microsoft.keyvault(secreturi (Parameter '@microsoft.keyvault(secreturi')
+ ---> System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at Npgsql.NpgsqlConnectionStringBuilder.GeneratedActions(GeneratedAction action, String keyword, Object& value)
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   --- End of inner exception stack trace ---
+   at Npgsql.NpgsqlConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnectionStringBuilder..ctor(String connectionString)
+   at Npgsql.NpgsqlConnection.SetupDataSource()
+   at Npgsql.NpgsqlConnection.set_ConnectionString(String value)
+   at Npgsql.NpgsqlConnection..ctor(String connectionString)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at TrueFeedback.Repositories.Repository`2.GetAllAsync() in /Users/legin/Documents/Genspark-Training/06-06-2025/TrueFeedback/Repositories/Repository.cs:line 69
+   at TrueFeedback.Services.FeedbackService.GetAllAsync(QueryParameters query) in /Users/legin/Documents/Genspark-Training/06-06-2025/TrueFeedback/Services/FeedbackService.cs:line 18
+   at TrueFeedback.Controllers.FeedbackController.GetAll(QueryParameters query) in /Users/legin/Documents/Genspark-Training/06-06-2025/TrueFeedback/Controllers/FeedbackController.cs:line 29
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-14 11:51:54.404 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/api/v1/feedbacks - 500 null text/plain; charset=utf-8 2425.0723ms
+2025-07-14 11:58:19.360 +05:30 [INF] Application is shutting down...
+2025-07-14 11:58:35.654 +05:30 [INF] User profile is available. Using '/Users/legin/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-14 11:58:36.109 +05:30 [INF] Now listening on: https://localhost:7226
+2025-07-14 11:58:36.112 +05:30 [INF] Now listening on: http://localhost:5284
+2025-07-14 11:58:36.116 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-14 11:58:36.118 +05:30 [INF] Hosting environment: Development
+2025-07-14 11:58:36.118 +05:30 [INF] Content root path: /Users/legin/Documents/Genspark-Training/06-06-2025/TrueFeedback
+2025-07-14 12:01:11.395 +05:30 [INF] Application is shutting down...
+2025-07-14 12:01:25.705 +05:30 [INF] User profile is available. Using '/Users/legin/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-14 12:01:26.079 +05:30 [INF] Now listening on: https://localhost:7226
+2025-07-14 12:01:26.081 +05:30 [INF] Now listening on: http://localhost:5284
+2025-07-14 12:01:26.090 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-14 12:01:26.092 +05:30 [INF] Hosting environment: Development
+2025-07-14 12:01:26.092 +05:30 [INF] Content root path: /Users/legin/Documents/Genspark-Training/06-06-2025/TrueFeedback
+2025-07-14 12:01:29.681 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/api/v1/feedbacks - null null
+2025-07-14 12:01:29.854 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-14 12:01:30.030 +05:30 [INF] Route matched with {action = "GetAll", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TrueFeedback.Models.DTOs.PagedResult`1[TrueFeedback.Models.Feedback]]] GetAll(QueryParameters) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-07-14 12:01:31.614 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) - Validation state: "Valid"
+2025-07-14 12:01:31.629 +05:30 [INF] All Items fetched successfully
+2025-07-14 12:01:32.715 +05:30 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Created", f."IsDeleted", f."Message", f."Rating", f."Reply", f."ReplyToId", f."Updated", f."UserId"
+FROM "Feedbacks" AS f
+2025-07-14 12:01:32.981 +05:30 [INF] Executed action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1359.5464ms.
+2025-07-14 12:01:33.006 +05:30 [INF] Executing OkObjectResult, writing value of type 'TrueFeedback.Models.DTOs.PagedResult`1[[TrueFeedback.Models.Feedback, TrueFeedback, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 12:01:33.297 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) in 3260.7577ms
+2025-07-14 12:01:33.298 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-14 12:01:33.339 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/api/v1/feedbacks - 200 null application/json; charset=utf-8 3660.4167ms
+2025-07-14 12:04:02.895 +05:30 [INF] Application is shutting down...
+2025-07-14 12:04:14.764 +05:30 [INF] User profile is available. Using '/Users/legin/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-14 12:04:15.116 +05:30 [INF] Now listening on: https://localhost:7226
+2025-07-14 12:04:15.117 +05:30 [INF] Now listening on: http://localhost:5284
+2025-07-14 12:04:15.122 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-14 12:04:15.124 +05:30 [INF] Hosting environment: Development
+2025-07-14 12:04:15.124 +05:30 [INF] Content root path: /Users/legin/Documents/Genspark-Training/06-06-2025/TrueFeedback
+2025-07-14 13:16:57.513 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - null null
+2025-07-14 13:16:57.513 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - null null
+2025-07-14 13:16:57.513 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - null null
+2025-07-14 13:16:57.513 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - null null
+2025-07-14 13:16:57.836 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - 200 null text/html;charset=utf-8 327.8532ms
+2025-07-14 13:16:57.836 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - 200 null text/html;charset=utf-8 328.0034ms
+2025-07-14 13:16:57.836 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - 200 null text/html;charset=utf-8 328.0202ms
+2025-07-14 13:16:57.836 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - 200 null text/html;charset=utf-8 328.035ms
+2025-07-14 13:16:57.863 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui.css - null null
+2025-07-14 13:16:57.864 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui-bundle.js - null null
+2025-07-14 13:16:57.865 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui-standalone-preset.js - null null
+2025-07-14 13:16:57.865 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui.css - null null
+2025-07-14 13:16:57.866 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui.css - null null
+2025-07-14 13:16:57.866 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui-bundle.js - null null
+2025-07-14 13:16:57.866 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui.css - null null
+2025-07-14 13:16:57.868 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui-standalone-preset.js - null null
+2025-07-14 13:16:57.869 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui-bundle.js - null null
+2025-07-14 13:16:57.869 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui-bundle.js - null null
+2025-07-14 13:16:57.869 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui-standalone-preset.js - null null
+2025-07-14 13:16:57.869 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui-standalone-preset.js - null null
+2025-07-14 13:16:57.963 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-07-14 13:16:57.963 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-07-14 13:16:57.963 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-07-14 13:16:57.963 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-07-14 13:16:57.963 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-07-14 13:16:57.963 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-07-14 13:16:57.963 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-07-14 13:16:57.963 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 95.2501ms
+2025-07-14 13:16:57.963 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui.css - 200 152034 text/css 97.5881ms
+2025-07-14 13:16:57.963 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 94.5063ms
+2025-07-14 13:16:57.974 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui.css - 200 152034 text/css 111.5149ms
+2025-07-14 13:16:57.974 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui.css - 200 152034 text/css 109.3075ms
+2025-07-14 13:16:57.974 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 109.5418ms
+2025-07-14 13:16:57.975 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui.css - 200 152034 text/css 109.0931ms
+2025-07-14 13:16:57.977 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-07-14 13:16:57.978 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 108.8349ms
+2025-07-14 13:16:58.015 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-07-14 13:16:58.015 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-07-14 13:16:58.015 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-07-14 13:16:58.015 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-07-14 13:16:58.015 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 150.8209ms
+2025-07-14 13:16:58.015 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 146.3526ms
+2025-07-14 13:16:58.015 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 149.5223ms
+2025-07-14 13:16:58.024 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 155.4578ms
+2025-07-14 13:16:58.463 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - null null
+2025-07-14 13:16:58.480 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - null null
+2025-07-14 13:16:58.490 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - null null
+2025-07-14 13:16:58.496 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - null null
+2025-07-14 13:16:58.913 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 416.2699ms
+2025-07-14 13:16:58.913 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 432.7668ms
+2025-07-14 13:16:58.913 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 422.4404ms
+2025-07-14 13:16:58.913 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 450.4241ms
+2025-07-14 14:44:31.663 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/api/v1/feedbacks - null null
+2025-07-14 14:44:31.951 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-14 14:44:32.186 +05:30 [INF] Route matched with {action = "GetAll", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TrueFeedback.Models.DTOs.PagedResult`1[TrueFeedback.Models.Feedback]]] GetAll(QueryParameters) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-07-14 14:44:33.777 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) - Validation state: "Valid"
+2025-07-14 14:44:33.787 +05:30 [INF] All Items fetched successfully
+2025-07-14 14:44:34.736 +05:30 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Created", f."IsDeleted", f."Message", f."Rating", f."Reply", f."ReplyToId", f."Updated", f."UserId"
+FROM "Feedbacks" AS f
+2025-07-14 14:44:35.064 +05:30 [INF] Executed action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1277.08ms.
+2025-07-14 14:44:35.078 +05:30 [INF] Executing OkObjectResult, writing value of type 'TrueFeedback.Models.DTOs.PagedResult`1[[TrueFeedback.Models.Feedback, TrueFeedback, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 14:44:35.261 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) in 3068.8077ms
+2025-07-14 14:44:35.263 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-14 14:44:35.289 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/api/v1/feedbacks - 200 null application/json; charset=utf-8 3627.4627ms
+2025-07-14 14:56:56.261 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7226/api/v1/feedbacks - null null
+2025-07-14 14:56:56.279 +05:30 [INF] Executing endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-14 14:56:56.280 +05:30 [INF] Route matched with {action = "GetAll", controller = "Feedback"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TrueFeedback.Models.DTOs.PagedResult`1[TrueFeedback.Models.Feedback]]] GetAll(QueryParameters) on controller TrueFeedback.Controllers.FeedbackController (TrueFeedback).
+2025-07-14 14:56:56.371 +05:30 [INF] Executing action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) - Validation state: "Valid"
+2025-07-14 14:56:56.372 +05:30 [INF] All Items fetched successfully
+2025-07-14 14:56:56.405 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Created", f."IsDeleted", f."Message", f."Rating", f."Reply", f."ReplyToId", f."Updated", f."UserId"
+FROM "Feedbacks" AS f
+2025-07-14 14:56:56.414 +05:30 [INF] Executed action method TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 42.4563ms.
+2025-07-14 14:56:56.414 +05:30 [INF] Executing OkObjectResult, writing value of type 'TrueFeedback.Models.DTOs.PagedResult`1[[TrueFeedback.Models.Feedback, TrueFeedback, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-14 14:56:56.415 +05:30 [INF] Executed action TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback) in 134.2097ms
+2025-07-14 14:56:56.415 +05:30 [INF] Executed endpoint 'TrueFeedback.Controllers.FeedbackController.GetAll (TrueFeedback)'
+2025-07-14 14:56:56.416 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7226/api/v1/feedbacks - 200 null application/json; charset=utf-8 154.5319ms
