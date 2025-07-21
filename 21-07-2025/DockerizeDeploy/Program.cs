@@ -1,7 +1,4 @@
-using BlobStorage.Interfaces;
-using BlobStorage.Services;
-
-namespace BlobStorage;
+namespace DockerizeDeploy;
 
 public class Program
 {
@@ -11,12 +8,10 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddAuthorization();
-        builder.Services.AddControllers();
+
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        builder.Services.AddHttpClient();
-        builder.Services.AddScoped<IFileService, FileService>();
 
         var app = builder.Build();
 
@@ -28,8 +23,6 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-
-        app.MapControllers();
 
         app.UseAuthorization();
 

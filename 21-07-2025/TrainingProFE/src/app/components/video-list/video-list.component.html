@@ -1,0 +1,13 @@
+<!-- <h2>Training Videos</h2>
+<div *ngFor="let video of videos" style="margin-bottom: 2em;">
+  <h3>{{ video.title }}</h3>
+  <p>{{ video.description }}</p>
+  <video width="640" height="360" controls [src]="getVideoSrc(video)">
+  Your browser does not support the video tag.
+</video>
+</div> -->
+
+<div *ngFor="let video of videos" class="video-item" (click)="goToVideo(video.id)">
+  <h3>{{ video.title }}</h3>
+  <p>{{ video.description }}</p>
+</div>

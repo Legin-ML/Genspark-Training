@@ -1,5 +1,6 @@
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+using BlobStorage.DTOs;
 using BlobStorage.Interfaces;
 
 namespace BlobStorage.Services;
@@ -8,18 +9,34 @@ using Azure.Storage.Blobs;
 
 public class FileService : IFileService
 {
-    private readonly BlobContainerClient _containerClient;
+    private readonly IConfiguration _configuration;
+    private readonly IHttpClientFactory _httpClientFactory;
 
-    public FileService(IConfiguration configuration)
+    public FileService(IConfiguration configuration, IHttpClientFactory httpClientFactory)
     {
-        var vault = configuration["AzureKeyVault:VaultUrl"];
-        var keyName = configuration["AzureKeyVault:SecretName"];
-        
-        SecretClient secretClient = new SecretClient(new Uri(vault), new DefaultAzureCredential());
-        
-        KeyVaultSecret secret = secretClient.GetSecret(keyName);
-        string sasUrl = secret.Value;
-        _containerClient = new BlobContainerClient(new Uri(sasUrl));
+        _configuration = configuration;
+        _httpClientFactory = httpClientFactory;
+    }
+    
+    private async Task<BlobClient> GetBlobClientWithSas(string fileName)
+    {
+        string functionUrl = $"https://legingensasfunc.azurewebsites.net/api/generate-sas/{fileName}";
+        var client = _httpClientFactory.CreateClient();
+        var sasResponse = await client.GetAsync(functionUrl);
+        if (!sasResponse.IsSuccessStatusCode)
+        {
+            var error = await sasResponse.Content.ReadAsStringAsync();
+            throw new InvalidOperationException("Could not obtain SAS URL.");
+        }
+
+        var sasData = await sasResponse.Content.ReadFromJsonAsync<SasResponse>();
+        if (sasData == null || string.IsNullOrWhiteSpace(sasData.sasUrl))
+        {
+            throw new InvalidOperationException("SAS URL response invalid.");
+        }
+
+        // Create BlobClient directly using the SAS URL
+        return new BlobClient(new Uri(sasData.sasUrl));
     }
 
     public async Task UploadFile(Stream fileStream, string fileName)
@@ -27,7 +44,7 @@ public class FileService : IFileService
         if (fileStream == null || string.IsNullOrWhiteSpace(fileName))
             throw new ArgumentException("Invalid input");
 
-        var blobClient = _containerClient.GetBlobClient(fileName);
+        var blobClient = await GetBlobClientWithSas(fileName);
         await blobClient.UploadAsync(fileStream, overwrite: true);
     }
 
@@ -36,7 +53,7 @@ public class FileService : IFileService
         if (string.IsNullOrWhiteSpace(fileName))
             throw new ArgumentException("File name is required");
 
-        var blobClient = _containerClient.GetBlobClient(fileName);
+        var blobClient = await GetBlobClientWithSas(fileName);
 
         if (await blobClient.ExistsAsync())
         {
@@ -49,7 +66,7 @@ public class FileService : IFileService
 
     public async Task<bool> FileExists(string fileName)
     {
-        var blobClient = _containerClient.GetBlobClient(fileName);
+        var blobClient = await GetBlobClientWithSas(fileName);
         return await blobClient.ExistsAsync();
     }
 }

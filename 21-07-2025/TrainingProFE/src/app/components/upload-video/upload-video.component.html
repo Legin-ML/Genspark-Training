@@ -1,0 +1,14 @@
+<h2>Upload Video</h2>
+<form (submit)="upload(); $event.preventDefault();">
+  <input type="text" [(ngModel)]="title" name="title" placeholder="Title" required />
+  <input type="text" [(ngModel)]="description" name="description" placeholder="Description" required />
+  <input type="file" (change)="onFileChange($event)" accept="video/mp4" required />
+
+  <button type="submit" [disabled]="uploading">
+    {{ uploading ? 'Uploading...' : 'Upload' }}
+  </button>
+</form>
+
+<div *ngIf="uploading" class="loading-indicator">
+  Uploading, please wait...
+</div>

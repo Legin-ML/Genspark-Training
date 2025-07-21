@@ -31,12 +31,12 @@ public class Program
             .MinimumLevel.Information()
             .WriteTo.Console()
             .WriteTo.File("Logs/truefeedback-log-.txt", rollingInterval: RollingInterval.Day)
-            .WriteTo.AzureBlobStorage(
-                connectionString: blobConnectionString,
-                storageContainerName: "logs",
-                storageFileName: "{yyyy}/{MM}/{dd}/log.txt",
-                outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}"
-            )
+            // .WriteTo.AzureBlobStorage(
+            //     connectionString: blobConnectionString,
+            //     storageContainerName: "logs",
+            //     storageFileName: "{yyyy}/{MM}/{dd}/log.txt",
+            //     outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}"
+            // )
             .Enrich.FromLogContext()
             .CreateLogger();
 
